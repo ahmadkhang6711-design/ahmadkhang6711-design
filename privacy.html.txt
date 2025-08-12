@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Ultimate Media & Unit Conversion Toolkit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6e9ff 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .header-gradient {
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+        }
+        
+        footer {
+            background: rgba(30, 41, 59, 0.95);
+            color: #cbd5e1;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-gradient text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2">Ultimate Media & Unit Conversion Toolkit</h1>
+                    <p class="text-indigo-200">Advanced tools for all your media and unit conversion needs</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="bg-white/10 p-3 rounded-full">
+                        <i class="fas fa-sync-alt text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-indigo-200">Last Updated</p>
+                        <p id="last-updated" class="font-semibold">Just now</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="text-xl font-bold text-indigo-600">Conversion Toolkit</div>
+            <div class="flex space-x-4">
+                <a href="/" class="text-gray-600 hover:text-indigo-600">Home</a>
+                <a href="/about.html" class="text-gray-600 hover:text-indigo-600">About</a>
+                <a href="/privacy.html" class="text-gray-600 hover:text-indigo-600">Privacy</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8 max-w-4xl">
+        <h1 class="text-3xl font-bold mb-6">Privacy Policy</h1>
+        <p class="mb-4">This Privacy Policy describes how your personal information is collected, used, and shared when you visit or use our website.</p>
+        
+        <h2 class="text-2xl font-semibold mt-6 mb-3">Information We Collect</h2>
+        <p class="mb-4">When you use our service, we may collect certain information automatically, including:</p>
+        <ul class="list-disc pl-6 mb-4">
+            <li>IP address and browser information</li>
+            <li>Device information</li>
+            <li>Pages visited and time spent on our site</li>
+        </ul>
+        
+        <h2 class="text-2xl font-semibold mt-6 mb-3">Google AdSense</h2>
+        <p class="mb-4">We use Google AdSense to display ads. Google uses cookies to serve ads based on your prior visits to our website or other websites. You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" class="text-blue-600 hover:underline">Google's Ads Settings</a>.</p>
+        
+        <h2 class="text-2xl font-semibold mt-6 mb-3">Children's Privacy</h2>
+        <p class="mb-4">Our service is not intended for children under 13. We do not knowingly collect personal information from children under 13.</p>
+        
+        <h2 class="text-2xl font-semibold mt-6 mb-3">Changes to This Policy</h2>
+        <p class="mb-4">We may update our privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+        
+        <p class="mt-8">Last updated: October 1, 2023</p>
+    </main>
+    
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">Ultimate Conversion Toolkit</h3>
+                    <p class="text-gray-400">Free tools for all your conversion needs</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-2">Links</h4>
+                    <ul class="space-y-1">
+                        <li><a href="/about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="/privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Ultimate Conversion Toolkit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('last-updated').textContent = new Date().toLocaleString();
+    </script>
+</body>
+</html>

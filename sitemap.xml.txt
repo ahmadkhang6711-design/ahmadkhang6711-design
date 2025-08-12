@@ -1,0 +1,21 @@
+xml version=1.0 encoding=UTF-8
+urlset xmlns=httpwww.sitemaps.orgschemassitemap0.9
+  url
+    lochttpsyourusername.github.ioloc
+    lastmod2023-10-01lastmod
+    changefreqweeklychangefreq
+    priority1.0priority
+  url
+  url
+    lochttpsyourusername.github.ioabout.htmlloc
+    lastmod2023-10-01lastmod
+    changefreqmonthlychangefreq
+    priority0.5priority
+  url
+  url
+    lochttpsyourusername.github.ioprivacy.htmlloc
+    lastmod2023-10-01lastmod
+    changefreqmonthlychangefreq
+    priority0.5priority
+  url
+urlset
