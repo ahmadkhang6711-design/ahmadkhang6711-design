@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Media & Unit Conversion Toolkit</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f0f4ff 0%, #e6e9ff 100%);
+      min-height: 100vh;
+      color: #333;
+    }
+
+    .header-gradient {
+      background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .page-content {
+      display: none;
+    }
+
+    .page-content.active {
+      display: block;
+    }
+
+    .conversion-result {
+      transition: all 0.3s ease;
+    }
+
+    .positive-change {
+      color: #10b981;
+    }
+
+    .negative-change {
+      color: #ef4444;
+    }
+
+    .upload-area {
+      border: 2px dashed #c7d2fe;
+      background: #f8fafc;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .upload-area:hover {
+      background: #eef2ff;
+      border-color: #a5b4fc;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 24px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-secondary {
+      background: #e0e7ff;
+      color: #4f46e5;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #c7d2fe;
+    }
+
+    input,
+    select {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 12px 16px;
+      width: 100%;
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #a5b4fc;
+      box-shadow: 0 0 0 3px rgba(199, 210, 254, 0.5);
+    }
+
+    .nav-link {
+      padding: 14px 24px;
+      border-radius: 10px 10px 0 0;
+      background: #eef2ff;
+      color: #4f46e5;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #4f46e5;
+      transform: translateY(5px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link.active {
+      background: white;
+      color: #4f46e5;
+    }
+
+    .nav-link.active::after {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .nav-link:hover:not(.active) {
+      background: #e0e7ff;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: #4f46e5;
+      font-size: 24px;
+    }
+
+    footer {
+      background: rgba(30, 41, 59, 0.95);
+      color: #cbd5e1;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .conversion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .unit-card {
+      padding: 20px;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .resize-option {
+      display: flex;
+      gap: 10px;
+    }
+
+    .resize-option input {
+      width: 100%;
+    }
+
+    .progress-container {
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 10px 0;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #4f46e5, #8b5cf6);
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+
+    .preview-container {
+      display: flex;
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .preview-box {
+      flex: 1;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .preview-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #4f46e5;
+    }
+
+    .preview-image {
+      max-width: 100%;
+      max-height: 200px;
+      margin: 0 auto;
+    }
+
+    .file-icon {
+      font-size: 48px;
+      color: #4f46e5;
+      margin-bottom: 10px;
+    }
+
+    .conversion-badge {
+      background: #e0e7ff;
+      color: #4f46e5;
+      padding: 4px 8px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-left: 8px;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen">
+  <!-- Header -->
+  <header class="header-gradient text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <h1 class="text-3xl md:text-4xl font-bold mb-2">Ultimate Media & Unit Conversion Toolkit</h1>
+          <p class="text-indigo-200">Advanced tools for all your media and unit conversion needs</p>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="bg-white/10 p-3 rounded-full">
+            <i class="fas fa-sync-alt text-xl"></i>
+          </div>
+          <div>
+            <p class="text-sm text-indigo-200">Last Updated</p>
+            <p id="last-updated" class="font-semibold">Just now</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="bg-white shadow-sm py-4">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="text-xl font-bold text-indigo-600">Conversion Toolkit</div>
+      <div class="flex space-x-4">
+        <a href="#" class="nav-link active" data-page="home">Home</a>
+        <a href="#" class="nav-link" data-page="about">About</a>
+        <a href="#" class="nav-link" data-page="privacy">Privacy</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- AdSense Banner Ad (Top) - Placeholder -->
+  <div class="container mx-auto px-4 py-4">
+    <div style="background: #f0f0f0; padding: 20px; border-radius: 8px; text-align: center;">
+      <p style="color: #666;">Ad Space - Google AdSense will appear here after approval</p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 py-8 -mt-16">
+    <!-- Home Page (Conversion Tools) -->
+    <div id="home" class="page-content active">
+      <div class="card p-6 mb-8">
+        <div class="flex flex-wrap gap-2 mb-6">
+          <button class="tab-btn active" data-tab="media">
+            <i class="fas fa-file-image mr-2"></i>Media Conversion
+          </button>
+          <button class="tab-btn" data-tab="units">
+            <i class="fas fa-ruler-combined mr-2"></i>Unit Conversion
+          </button>
+        </div>
+
+        <!-- Media Conversion -->
+        <div id="media" class="tab-content active">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div>
+              <div class="card p-6 mb-6">
+                <h2 class="text-2xl font-bold text-primary mb-6">Image Conversion</h2>
+                <div class="space-y-6">
+                  <div class="upload-area p-8 text-center">
+                    <input type="file" id="image-upload" accept="image/*" class="hidden">
+                    <label for="image-upload" class="cursor-pointer">
+                      <div class="flex flex-col items-center justify-center">
+                        <i class="fas fa-cloud-upload-alt text-4xl text-primary mb-4"></i>
+                        <h3 class="text-lg font-medium mb-1">Upload an Image</h3>
+                        <p class="text-gray-600">Drag & drop or click to browse</p>
+                        <p class="text-sm text-gray-500 mt-2">Supports JPG, PNG, GIF, BMP, WebP</p>
+                      </div>
+                    </label>
+                  </div>
+
+                  <div>
+                    <label class="block text-gray-700 mb-2 font-medium">Convert to Format</label>
+                    <select id="target-image-format">
+                      <option value="jpeg">JPEG</option>
+                      <option value="png" selected>PNG</option>
+                      <option value="gif">GIF</option>
+                      <option value="webp">WebP</option>
+                      <option value="bmp">BMP</option>
+                      <option value="tiff">TIFF</option>
+                      <option value="svg">SVG (Vector)</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label class="block text-gray-700 mb-2 font-medium">Resize Options</label>
+                    <div class="grid grid-cols-2 gap-4">
+                      <div>
+                        <label class="text-sm text-gray-600 mb-1">Width (px)</label>
+                        <input type="number" id="image-width" placeholder="Original" min="1">
+                      </div>
+                      <div>
+                        <label class="text-sm text-gray-600 mb-1">Height (px)</label>
+                        <input type="number" id="image-height" placeholder="Original" min="1">
+                      </div>
+                    </div>
+                    <div class="mt-3 flex items-center">
+                      <input type="checkbox" id="maintain-aspect" class="mr-2" checked>
+                      <label for="maintain-aspect" class="text-gray-700">Maintain aspect ratio</label>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="block text-gray-700 mb-2 font-medium">Quality</label>
+                    <input type="range" id="image-quality" min="1" max="100" value="90" class="w-full">
+                    <div class="flex justify-between text-sm text-gray-600 mt-1">
+                      <span>Low</span>
+                      <span id="quality-value">90%</span>
+                      <span>High</span>
+                    </div>
+                  </div>
+
+                  <button id="convert-image" class="btn-primary w-full py-3 disabled:opacity-50" disabled>
+                    <i class="fas fa-cog mr-2"></i> Convert Image
+                  </button>
+                </div>
+              </div>
+
+              <div class="card p-6">
+                <h2 class="text-2xl font-bold text-primary mb-6">File Size Optimization</h2>
+                <div class="space-y-4">
+                  <div>
+                    <label class="block text-gray-700 mb-2 font-medium">Target File Size</label>
+                    <div class="flex gap-3">
+                      <input type="number" id="target-size" value="500" min="1" class="flex-1">
+                      <select id="size-unit" class="w-24">
+                        <option value="kb">KB</option>
+                        <option value="mb" selected>MB</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="block text-gray-700 mb-2 font-medium">Compression Level</label>
+                    <input type="range" id="compression-level" min="1" max="10" value="5" class="w-full">
+                    <div class="flex justify-between text-sm text-gray-600 mt-1">
+                      <span>Minimal</span>
+                      <span id="compression-value">Medium</span>
+                      <span>Maximum</span>
+                    </div>
+                  </div>
+
+                  <button id="optimize-file" class="btn-primary w-full py-3">
+                    <i class="fas fa-compress-arrows-alt mr-2"></i> Optimize File Size
+                  </button>
+
+                  <div id="optimization-result" class="mt-4 hidden">
+                    <div class="bg-green-50 p-4 rounded-lg flex justify-between items-center">
+                      <div>
+                        <div class="font-medium text-green-800">Optimization Complete!</div>
+                        <div class="text-sm text-green-700">Reduced file size by <span id="reduction-percent">52%</span></div>
+                      </div>
+                      <button id="download-optimized" class="btn-secondary">
+                        <i class="fas fa-download mr-2"></i> Download
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="card p-6 mb-6">
+                <h2 class="text-2xl font-bold text-primary mb-6">Conversion Results</h2>
+                <div id="image-result" class="hidden">
+                  <div class="preview-container">
+                    <div class="preview-box">
+                      <div class="preview-title">Original</div>
+                      <img id="original-image" src="" alt="Original image" class="preview-image">
+                      <div id="original-info" class="text-sm text-gray-600 mt-2">Size: 0 KB | Dimensions: 0×0</div>
+                    </div>
+                    <div class="preview-box">
+                      <div class="preview-title">Converted</div>
+                      <img id="converted-image" src="" alt="Converted image" class="preview-image">
+                      <div id="converted-info" class="text-sm text-gray-600 mt-2">Size: 0 KB | Dimensions: 0×0</div>
+                    </div>
+                  </div>
+
+                  <div class="flex justify-between items-center mt-4">
+                    <div>
+                      <span id="image-info" class="text-sm text-gray-600">Format: PNG | Reduction: 0%</span>
+                    </div>
+                    <div>
+                      <button id="download-image" class="btn-secondary mr-2">
+                        <i class="fas fa-download mr-2"></i> Download
+                      </button>
+                      <button id="new-conversion" class="btn-primary">
+                        <i class="fas fa-sync mr-2"></i> New Conversion
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="no-file" class="text-center py-12">
+                  <i class="fas fa-file-image text-4xl text-gray-300 mb-4"></i>
+                  <h3 class="text-xl font-medium text-gray-500">No File Selected</h3>
+                  <p class="text-gray-400 mt-2">Upload a file to begin conversion</p>
+                </div>
+              </div>
+
+              <div class="card p-6">
+                <h2 class="text-2xl font-bold text-primary mb-6">Batch Media Conversion</h2>
+                <div class="space-y-4">
+                  <div class="upload-area p-6 text-center">
+                    <input type="file" id="batch-upload" accept="image/*,video/*,audio/*" multiple class="hidden">
+                    <label for="batch-upload" class="cursor-pointer">
+                      <div class="flex flex-col items-center justify-center">
+                        <i class="fas fa-folder-open text-3xl text-primary mb-3"></i>
+                        <h3 class="text-lg font-medium mb-1">Upload Multiple Files</h3>
+                        <p class="text-gray-600">Select multiple files for batch processing</p>
+                      </div>
+                    </label>
+                  </div>
+
+                  <div>
+                    <label class="block text-gray-700 mb-2 font-medium">Output Format</label>
+                    <select id="batch-format">
+                      <option value="jpeg">JPEG (Images)</option>
+                      <option value="png">PNG (Images)</option>
+                      <option value="mp4">MP4 (Videos)</option>
+                      <option value="mp3">MP3 (Audio)</option>
+                      <option value="pdf">PDF (Documents)</option>
+                    </select>
+                  </div>
+
+                  <div id="batch-file-list" class="max-h-40 overflow-y-auto hidden">
+                    <div class="font-medium mb-2">Selected Files:</div>
+                    <div id="file-list" class="space-y-1"></div>
+                  </div>
+
+                  <button id="start-batch" class="btn-primary w-full py-3 disabled:opacity-50" disabled>
+                    <i class="fas fa-play-circle mr-2"></i> Start Batch Conversion
+                  </button>
+
+                  <div id="batch-progress" class="mt-4 hidden">
+                    <div class="flex justify-between mb-1">
+                      <span class="text-sm font-medium">Processing files...</span>
+                      <span id="progress-percent" class="text-sm font-medium">0%</span>
+                    </div>
+                    <div class="progress-container">
+                      <div id="batch-progress-bar" class="progress-bar"></div>
+                    </div>
+                    <div id="current-file" class="text-sm text-gray-600 mt-2"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unit Conversion -->
+        <div id="units" class="tab-content">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Length -->
+            <div class="card p-5">
+              <div class="feature-icon">
+                <i class="fas fa-ruler"></i>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-4">Length Conversion</h3>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-gray-700 mb-2">Value</label>
+                  <input type="number" id="length-value" value="1" min="0">
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                  <select id="length-from">
+                    <option value="nm">Nanometer (nm)</option>
+                    <option value="μm">Micrometer (μm)</option>
+                    <option value="mm">Millimeter (mm)</option>
+                    <option value="cm">Centimeter (cm)</option>
+                    <option value="m" selected>Meter (m)</option>
+                    <option value="km">Kilometer (km)</option>
+                    <option value="in">Inch (in)</option>
+                    <option value="ft">Foot (ft)</option>
+                    <option value="yd">Yard (yd)</option>
+                    <option value="mi">Mile (mi)</option>
+                    <option value="nmi">Nautical Mile (nmi)</option>
+                  </select>
+                  <button class="btn-secondary" id="swap-length">
+                    <i class="fas fa-exchange-alt"></i>
+                  </button>
+                  <select id="length-to">
+                    <option value="nm">Nanometer (nm)</option>
+                    <option value="μm">Micrometer (μm)</option>
+                    <option value="mm">Millimeter (mm)</option>
+                    <option value="cm">Centimeter (cm)</option>
+                    <option value="m">Meter (m)</option>
+                    <option value="km" selected>Kilometer (km)</option>
+                    <option value="in">Inch (in)</option>
+                    <option value="ft">Foot (ft)</option>
+                    <option value="yd">Yard (yd)</option>
+                    <option value="mi">Mile (mi)</option>
+                    <option value="nmi">Nautical Mile (nmi)</option>
+                  </select>
+                </div>
+                <div id="length-result" class="p-4 bg-indigo-50 rounded-lg text-center hidden">
+                  <span id="length-converted" class="text-2xl font-bold">0</span>
+                  <span id="length-symbol" class="text-gray-600 ml-2"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Weight -->
+            <div class="card p-5">
+              <div class="feature-icon">
+                <i class="fas fa-weight-scale"></i>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-4">Weight Conversion</h3>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-gray-700 mb-2">Value</label>
+                  <input type="number" id="weight-value" value="1" min="0">
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                  <select id="weight-from">
+                    <option value="μg">Microgram (μg)</option>
+                    <option value="mg">Milligram (mg)</option>
+                    <option value="g">Gram (g)</option>
+                    <option value="kg" selected>Kilogram (kg)</option>
+                    <option value="t">Metric Ton (t)</option>
+                    <option value="oz">Ounce (oz)</option>
+                    <option value="lb">Pound (lb)</option>
+                    <option value="stone">Stone (st)</option>
+                    <option value="ust">US Ton (ust)</option>
+                    <option value="ukt">UK Ton (ukt)</option>
+                  </select>
+                  <button class="btn-secondary" id="swap-weight">
+                    <i class="fas fa-exchange-alt"></i>
+                  </button>
+                  <select id="weight-to">
+                    <option value="μg">Microgram (μg)</option>
+                    <option value="mg">Milligram (mg)</option>
+                    <option value="g">Gram (g)</option>
+                    <option value="kg">Kilogram (kg)</option>
+                    <option value="t" selected>Metric Ton (t)</option>
+                    <option value="oz">Ounce (oz)</option>
+                    <option value="lb">Pound (lb)</option>
+                    <option value="stone">Stone (st)</option>
+                    <option value="ust">US Ton (ust)</option>
+                    <option value="ukt">UK Ton (ukt)</option>
+                  </select>
+                </div>
+                <div id="weight-result" class="p-4 bg-indigo-50 rounded-lg text-center hidden">
+                  <span id="weight-converted" class="text-2xl font-bold">0</span>
+                  <span id="weight-symbol" class="text-gray-600 ml-2"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Temperature -->
+            <div class="card p-5">
+              <div class="feature-icon">
+                <i class="fas fa-temperature-high"></i>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-4">Temperature Conversion</h3>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-gray-700 mb-2">Value</label>
+                  <input type="number" id="temp-value" value="20" min="-273.15">
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                  <select id="temp-from">
+                    <option value="c" selected>°C (Celsius)</option>
+                    <option value="f">°F (Fahrenheit)</option>
+                    <option value="k">K (Kelvin)</option>
+                    <option value="r">°R (Rankine)</option>
+                  </select>
+                  <button class="btn-secondary" id="swap-temp">
+                    <i class="fas fa-exchange-alt"></i>
+                  </button>
+                  <select id="temp-to">
+                    <option value="c">°C (Celsius)</option>
+                    <option value="f" selected>°F (Fahrenheit)</option>
+                    <option value="k">K (Kelvin)</option>
+                    <option value="r">°R (Rankine)</option>
+                  </select>
+                </div>
+                <div id="temp-result" class="p-4 bg-indigo-50 rounded-lg text-center hidden">
+                  <span id="temp-converted" class="text-2xl font-bold">0</span>
+                  <span id="temp-symbol" class="text-gray-600 ml-2"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Area -->
+            <div class="card p-5">
+              <div class="feature-icon">
+                <i class="fas fa-border-all"></i>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-4">Area Conversion</h3>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-gray-700 mb-2">Value</label>
+                  <input type="number" id="area-value" value="1" min="0">
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                  <select id="area-from">
+                    <option value="mm2">mm²</option>
+                    <option value="cm2">cm²</option>
+                    <option value="m2" selected>m²</option>
+                    <option value="ha">Hectare (ha)</option>
+                    <option value="km2">km²</option>
+                    <option value="in2">in²</option>
+                    <option value="ft2">ft²</option>
+                    <option value="yd2">yd²</option>
+                    <option value="acre">Acre</option>
+                    <option value="mi2">mi²</option>
+                  </select>
+                  <button class="btn-secondary" id="swap-area">
+                    <i class="fas fa-exchange-alt"></i>
+                  </button>
+                  <select id="area-to">
+                    <option value="mm2">mm²</option>
+                    <option value="cm2">cm²</option>
+                    <option value="m2">m²</option>
+                    <option value="ha">Hectare (ha)</option>
+                    <option value="km2" selected>km²</option>
+                    <option value="in2">in²</option>
+                    <option value="ft2">ft²</option>
+                    <option value="yd2">yd²</option>
+                    <option value="acre">Acre</option>
+                    <option value="mi2">mi²</option>
+                  </select>
+                </div>
+                <div id="area-result" class="p-4 bg-indigo-50 rounded-lg text-center hidden">
+                  <span id="area-converted" class="text-2xl font-bold">0</span>
+                  <span id="area-symbol" class="text-gray-600 ml-2"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Volume -->
+            <div class="card p-5">
+              <div class="feature-icon">
+                <i class="fas fa-glass-water"></i>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-4">Volume Conversion</h3>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-gray-700 mb-2">Value</label>
+                  <input type="number" id="volume-value" value="1" min="0">
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                  <select id="volume-from">
+                    <option value="ml">Milliliter (ml)</option>
+                    <option value="cl">Centiliter (cl)</option>
+                    <option value="l" selected>Liter (l)</option>
+                    <option value="m3">Cubic Meter (m³)</option>
+                    <option value="in3">Cubic Inch (in³)</option>
+                    <option value="ft3">Cubic Foot (ft³)</option>
+                    <option value="gal">US Gallon (gal)</option>
+                    <option value="ukgal">UK Gallon (ukgal)</option>
+                    <option value="barrel">Barrel (petroleum)</option>
+                  </select>
+                  <button class="btn-secondary" id="swap-volume">
+                    <i class="fas fa-exchange-alt"></i>
+                  </button>
+                  <select id="volume-to">
+                    <option value="ml">Milliliter (ml)</option>
+                    <option value="cl">Centiliter (cl)</option>
+                    <option value="l">Liter (l)</option>
+                    <option value="m3" selected>Cubic Meter (m³)</option>
+                    <option value="in3">Cubic Inch (in³)</option>
+                    <option value="ft3">Cubic Foot (ft³)</option>
+                    <option value="gal">US Gallon (gal)</option>
+                    <option value="ukgal">UK Gallon (ukgal)</option>
+                    <option value="barrel">Barrel (petroleum)</option>
+                  </select>
+                </div>
+                <div id="volume-result" class="p-4 bg-indigo-50 rounded-lg text-center hidden">
+                  <span id="volume-converted" class="text-2xl font-bold">0</span>
+                  <span id="volume-symbol" class="text-gray-600 ml-2"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Speed -->
+            <div class="card p-5">
+              <div class="feature-icon">
+                <i class="fas fa-gauge-high"></i>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-4">Speed Conversion</h3>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-gray-700 mb-2">Value</label>
+                  <input type="number" id="speed-value" value="1" min="0">
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                  <select id="speed-from">
+                    <option value="mps" selected>m/s</option>
+                    <option value="kph">km/h</option>
+                    <option value="mph">mph</option>
+                    <option value="knot">Knot (kn)</option>
+                    <option value="ftps">ft/s</option>
+                    <option value="ma">Mach (at sea level)</option>
+                    <option value="c">Speed of Light (c)</option>
+                  </select>
+                  <button class="btn-secondary" id="swap-speed">
+                    <i class="fas fa-exchange-alt"></i>
+                  </button>
+                  <select id="speed-to">
+                    <option value="mps">m/s</option>
+                    <option value="kph" selected>km/h</option>
+                    <option value="mph">mph</option>
+                    <option value="knot">Knot (kn)</option>
+                    <option value="ftps">ft/s</option>
+                    <option value="ma">Mach (at sea level)</option>
+                    <option value="c">Speed of Light (c)</option>
+                  </select>
+                </div>
+                <div id="speed-result" class="p-4 bg-indigo-50 rounded-lg text-center hidden">
+                  <span id="speed-converted" class="text-2xl font-bold">0</span>
+                  <span id="speed-symbol" class="text-gray-600 ml-2"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Digital Storage -->
+            <div class="card p-5">
+              <div class="feature-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-4">Digital Storage</h3>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-gray-700 mb-2">Value</label>
+                  <input type="number" id="storage-value" value="1" min="0">
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                  <select id="storage-from">
+                    <option value="b">Bit (b)</option>
+                    <option value="B" selected>Byte (B)</option>
+                    <option value="kb">Kilobyte (KB)</option>
+                    <option value="mb">Megabyte (MB)</option>
+                    <option value="gb">Gigabyte (GB)</option>
+                    <option value="tb">Terabyte (TB)</option>
+                    <option value="pb">Petabyte (PB)</option>
+                  </select>
+                  <button class="btn-secondary" id="swap-storage">
+                    <i class="fas fa-exchange-alt"></i>
+                  </button>
+                  <select id="storage-to">
+                    <option value="b">Bit (b)</option>
+                    <option value="B">Byte (B)</option>
+                    <option value="kb">Kilobyte (KB)</option>
+                    <option value="mb">Megabyte (MB)</option>
+                    <option value="gb" selected>Gigabyte (GB)</option>
+                    <option value="tb">Terabyte (TB)</option>
+                    <option value="pb">Petabyte (PB)</option>
+                  </select>
+                </div>
+                <div id="storage-result" class="p-4 bg-indigo-50 rounded-lg text-center hidden">
+                  <span id="storage-converted" class="text-2xl font-bold">0</span>
+                  <span id="storage-symbol" class="text-gray-600 ml-2"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Time -->
+            <div class="card p-5">
+              <div class="feature-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-4">Time Conversion</h3>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-gray-700 mb-2">Value</label>
+                  <input type="number" id="time-value" value="1" min="0">
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                  <select id="time-from">
+                    <option value="ns">Nanosecond (ns)</option>
+                    <option value="μs">Microsecond (μs)</option>
+                    <option value="ms">Millisecond (ms)</option>
+                    <option value="s" selected>Second (s)</option>
+                    <option value="min">Minute (min)</option>
+                    <option value="hr">Hour (hr)</option>
+                    <option value="day">Day (day)</option>
+                    <option value="week">Week (week)</option>
+                    <option value="month">Month (30 days)</option>
+                    <option value="year">Year (365 days)</option>
+                  </select>
+                  <button class="btn-secondary" id="swap-time">
+                    <i class="fas fa-exchange-alt"></i>
+                  </button>
+                  <select id="time-to">
+                    <option value="ns">Nanosecond (ns)</option>
+                    <option value="μs">Microsecond (μs)</option>
+                    <option value="ms">Millisecond (ms)</option>
+                    <option value="s">Second (s)</option>
+                    <option value="min" selected>Minute (min)</option>
+                    <option value="hr">Hour (hr)</option>
+                    <option value="day">Day (day)</option>
+                    <option value="week">Week (week)</option>
+                    <option value="month">Month (30 days)</option>
+                    <option value="year">Year (365 days)</option>
+                  </select>
+                </div>
+                <div id="time-result" class="p-4 bg-indigo-50 rounded-lg text-center hidden">
+                  <span id="time-converted" class="text-2xl font-bold">0</span>
+                  <span id="time-symbol" class="text-gray-600 ml-2"></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Energy -->
+            <div class="card p-5">
+              <div class="feature-icon">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <h3 class="text-xl font-bold text-primary mb-4">Energy Conversion</h3>
+              <div class="space-y-4">
+                <div>
+                  <label class="block text-gray-700 mb-2">Value</label>
+                  <input type="number" id="energy-value" value="1" min="0">
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                  <select id="energy-from">
+                    <option value="J">Joule (J)</option>
+                    <option value="kJ">Kilojoule (kJ)</option>
+                    <option value="cal">Calorie (cal)</option>
+                    <option value="kcal" selected>Kilocalorie (kcal)</option>
+                    <option value="Wh">Watt-hour (Wh)</option>
+                    <option value="kWh">Kilowatt-hour (kWh)</option>
+                    <option value="eV">Electronvolt (eV)</option>
+                    <option value="btu">British Thermal Unit (BTU)</option>
+                  </select>
+                  <button class="btn-secondary" id="swap-energy">
+                    <i class="fas fa-exchange-alt"></i>
+                  </button>
+                  <select id="energy-to">
+                    <option value="J">Joule (J)</option>
+                    <option value="kJ">Kilojoule (kJ)</option>
+                    <option value="cal">Calorie (cal)</option>
+                    <option value="kcal">Kilocalorie (kcal)</option>
+                    <option value="Wh" selected>Watt-hour (Wh)</option>
+                    <option value="kWh">Kilowatt-hour (kWh)</option>
+                    <option value="eV">Electronvolt (eV)</option>
+                    <option value="btu">British Thermal Unit (BTU)</option>
+                  </select>
+                </div>
+                <div id="energy-result" class="p-4 bg-indigo-50 rounded-lg text-center hidden">
+                  <span id="energy-converted" class="text-2xl font-bold">0</span>
+                  <span id="energy-symbol" class="text-gray-600 ml-2"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page-content">
+      <div class="card p-8 max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6">About Our Tool</h1>
+        <p class="mb-4">The Ultimate Media & Unit Conversion Toolkit is a free online service designed to help you convert between different file formats and measurement units quickly and easily.</p>
+
+        <h2 class="text-2xl font-semibold mt-6 mb-3">Features</h2>
+        <ul class="list-disc pl-6 mb-4">
+          <li>Image format conversion (JPG, PNG, GIF, WebP, etc.)</li>
+          <li>Unit conversion for length, weight, temperature, and more</li>
+          <li>Batch processing for multiple files</li>
+          <li>File size optimization</li>
+          <li>Completely free to use</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold mt-6 mb-3">Our Mission</h2>
+        <p class="mb-4">We aim to provide the simplest, most reliable conversion tools on the web, completely free of charge. Our tools are designed to work on all devices and browsers without requiring any software installation.</p>
+
+        <h2 class="text-2xl font-semibold mt-6 mb-3">Contact Us</h2>
+        <p class="mb-4">If you have any questions or suggestions, please feel free to contact us at <a href="mailto:contact@conversiontoolkit.com" class="text-blue-600 hover:underline">contact@conversiontoolkit.com</a>.</p>
+
+        <div class="mt-8 text-center">
+          <button class="btn-primary" onclick="showPage('home')">
+            <i class="fas fa-home mr-2"></i> Back to Tools
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Privacy Policy Page -->
+    <div id="privacy" class="page-content">
+      <div class="card p-8 max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6">Privacy Policy</h1>
+        <p class="mb-4">This Privacy Policy describes how your personal information is collected, used, and shared when you visit or use our website.</p>
+
+        <h2 class="text-2xl font-semibold mt-6 mb-3">Information We Collect</h2>
+        <p class="mb-4">When you use our service, we may collect certain information automatically, including:</p>
+        <ul class="list-disc pl-6 mb-4">
+          <li>IP address and browser information</li>
+          <li>Device information</li>
+          <li>Pages visited and time spent on our site</li>
+        </ul>
+
+        <h2 class="text-2xl font-semibold mt-6 mb-3">Google AdSense</h2>
+        <p class="mb-4">We use Google AdSense to display ads. Google uses cookies to serve ads based on your prior visits to our website or other websites. You may opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" class="text-blue-600 hover:underline">Google's Ads Settings</a>.</p>
+
+        <h2 class="text-2xl font-semibold mt-6 mb-3">Children's Privacy</h2>
+        <p class="mb-4">Our service is not intended for children under 13. We do not knowingly collect personal information from children under 13.</p>
+
+        <h2 class="text-2xl font-semibold mt-6 mb-3">Changes to This Policy</h2>
+        <p class="mb-4">We may update our privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page.</p>
+
+        <p class="mt-8">Last updated: October 1, 2023</p>
+
+        <div class="mt-8 text-center">
+          <button class="btn-primary" onclick="showPage('home')">
+            <i class="fas fa-home mr-2"></i> Back to Tools
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- AdSense Banner Ad (Bottom) - Placeholder -->
+  <div class="container mx-auto px-4 py-4">
+    <div style="background: #f0f0f0; padding: 20px; border-radius: 8px; text-align: center;">
+      <p style="color: #666;">Ad Space - Google AdSense will appear here after approval</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8 mt-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between">
+        <div class="mb-6 md:mb-0">
+          <h3 class="text-xl font-bold mb-2">Ultimate Conversion Toolkit</h3>
+          <p class="text-gray-400">Free tools for all your conversion needs</p>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold mb-2">Links</h4>
+          <ul class="space-y-1">
+            <li><a href="#" onclick="showPage('about')" class="text-gray-400 hover:text-white">About Us</a></li>
+            <li><a href="#" onclick="showPage('privacy')" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+        <p>&copy; 2023 Ultimate Conversion Toolkit. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Update the "Last Updated" time
+    document.getElementById('last-updated').textContent = new Date().toLocaleString();
+    // Page navigation
+    function showPage(pageId) {
+      // Hide all pages
+      document.querySelectorAll('.page-content').forEach(page => {
+        page.classList.remove('active');
+      });
+      // Remove active class from all nav links
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      // Show selected page
+      document.getElementById(pageId).classList.add('active');
+      // Add active class to clicked nav link
+      document.querySelector(`[data-page="${pageId}"]`).classList.add('active');
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+    // Navigation click handlers
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const page = link.getAttribute('data-page');
+        showPage(page);
+      });
+    });
+    // Tab switching functionality
+    document.querySelectorAll('.tab-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const tabId = button.getAttribute('data-tab');
+        // Remove active class from all tabs and buttons
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        // Add active class to clicked button and corresponding tab
+        button.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+    // Quality slider update
+    document.getElementById('image-quality').addEventListener('input', function() {
+      document.getElementById('quality-value').textContent = this.value + '%';
+    });
+    // Compression level update
+    document.getElementById('compression-level').addEventListener('input', function() {
+      const levels = ['Minimal', 'Very Low', 'Low', 'Medium-Low', 'Medium', 'Medium-High', 'High', 'Very High', 'Maximum', 'Extreme'];
+      document.getElementById('compression-value').textContent = levels[this.value - 1];
+    });
+    // Image upload handling
+    document.getElementById('image-upload').addEventListener('change', function(e) {
+      if (e.target.files.length > 0) {
+        document.getElementById('convert-image').disabled = false;
+        document.getElementById('no-file').classList.add('hidden');
+        document.getElementById('image-result').classList.remove('hidden');
+        // In a real implementation, you would process the image here
+        // For now, we'll just show a placeholder
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          document.getElementById('original-image').src = event.target.result;
+          document.getElementById('converted-image').src = event.target.result;
+        };
+        reader.readAsDataURL(e.target.files[0]);
+      }
+    });
+    // Batch upload handling
+    document.getElementById('batch-upload').addEventListener('change', function(e) {
+      if (e.target.files.length > 0) {
+        document.getElementById('start-batch').disabled = false;
+        document.getElementById('batch-file-list').classList.remove('hidden');
+        const fileList = document.getElementById('file-list');
+        fileList.innerHTML = '';
+        for (let i = 0; i < e.target.files.length; i++) {
+          const file = e.target.files[i];
+          const fileItem = document.createElement('div');
+          fileItem.className = 'text-sm';
+          fileItem.textContent = file.name;
+          fileList.appendChild(fileItem);
+        }
+      }
+    });
+    // Start batch conversion
+    document.getElementById('start-batch').addEventListener('click', function() {
+      document.getElementById('batch-progress').classList.remove('hidden');
+      // Simulate progress
+      let progress = 0;
+      const interval = setInterval(function() {
+        progress += 5;
+        document.getElementById('progress-percent').textContent = progress + '%';
+        document.getElementById('batch-progress-bar').style.width = progress + '%';
+        if (progress >= 100) {
+          clearInterval(interval);
+          document.getElementById('current-file').textContent = 'All files processed successfully!';
+        }
+      }, 200);
+    });
+    // Unit conversion functions
+    const unitConversions = {
+      length: {
+        'nm': 1e-9,
+        'μm': 1e-6,
+        'mm': 0.001,
+        'cm': 0.01,
+        'm': 1,
+        'km': 1000,
+        'in': 0.0254,
+        'ft': 0.3048,
+        'yd': 0.9144,
+        'mi': 1609.34,
+        'nmi': 1852
+      },
+      weight: {
+        'μg': 1e-9,
+        'mg': 0.000001,
+        'g': 0.001,
+        'kg': 1,
+        't': 1000,
+        'oz': 0.0283495,
+        'lb': 0.453592,
+        'stone': 6.35029,
+        'ust': 907.185,
+        'ukt': 1016.05
+      },
+      temperature: {
+        'c': (val, to) => {
+          if (to === 'f') return (val * 9 / 5) + 32;
+          if (to === 'k') return val + 273.15;
+          if (to === 'r') return (val + 273.15) * 9 / 5;
+          return val;
+        },
+        'f': (val, to) => {
+          if (to === 'c') return (val - 32) * 5 / 9;
+          if (to === 'k') return (val - 32) * 5 / 9 + 273.15;
+          if (to === 'r') return val + 459.67;
+          return val;
+        },
+        'k': (val, to) => {
+          if (to === 'c') return val - 273.15;
+          if (to === 'f') return (val - 273.15) * 9 / 5 + 32;
+          if (to === 'r') return val * 9 / 5;
+          return val;
+        },
+        'r': (val, to) => {
+          if (to === 'c') return (val - 491.67) * 5 / 9;
+          if (to === 'f') return val - 459.67;
+          if (to === 'k') return val * 5 / 9;
+          return val;
+        }
+      },
+      area: {
+        'mm2': 0.000001,
+        'cm2': 0.0001,
+        'm2': 1,
+        'ha': 10000,
+        'km2': 1000000,
+        'in2': 0.00064516,
+        'ft2': 0.092903,
+        'yd2': 0.836127,
+        'acre': 4046.86,
+        'mi2': 2589988
+      },
+      volume: {
+        'ml': 0.001,
+        'cl': 0.01,
+        'l': 1,
+        'm3': 1000,
+        'in3': 0.0163871,
+        'ft3': 28.3168,
+        'gal': 3.78541,
+        'ukgal': 4.54609,
+        'barrel': 158.987
+      },
+      speed: {
+        'mps': 1,
+        'kph': 0.277778,
+        'mph': 0.44704,
+        'knot': 0.514444,
+        'ftps': 0.3048,
+        'ma': 343,
+        'c': 299792458
+      },
+      storage: {
+        'b': 0.125,
+        'B': 1,
+        'kb': 1000,
+        'mb': 1000000,
+        'gb': 1000000000,
+        'tb': 1000000000000,
+        'pb': 1000000000000000
+      },
+      time: {
+        'ns': 1e-9,
+        'μs': 1e-6,
+        'ms': 0.001,
+        's': 1,
+        'min': 60,
+        'hr': 3600,
+        'day': 86400,
+        'week': 604800,
+        'month': 2592000,
+        'year': 31536000
+      },
+      energy: {
+        'J': 1,
+        'kJ': 1000,
+        'cal': 4.184,
+        'kcal': 4184,
+        'Wh': 3600,
+        'kWh': 3600000,
+        'eV': 1.60218e-19,
+        'btu': 1055.06
+      }
+    };
+    // Set up conversion for all unit types
+    ['length', 'weight', 'area', 'volume', 'speed', 'storage', 'time', 'energy'].forEach(type => {
+      const valueInput = document.getElementById(`${type}-value`);
+      const fromSelect = document.getElementById(`${type}-from`);
+      const toSelect = document.getElementById(`${type}-to`);
+      const resultDiv = document.getElementById(`${type}-result`);
+      const convertedSpan = document.getElementById(`${type}-converted`);
+      const symbolSpan = document.getElementById(`${type}-symbol`);
+      const swapBtn = document.getElementById(`swap-${type}`);
+
+      function convert() {
+        const value = parseFloat(valueInput.value);
+        const fromUnit = fromSelect.value;
+        const toUnit = toSelect.value;
+        if (isNaN(value)) {
+          resultDiv.classList.add('hidden');
+          return;
+        }
+        let result;
+        if (type === 'temperature') {
+          result = unitConversions.temperature[fromUnit](value, toUnit);
+        } else {
+          const baseValue = value * unitConversions[type][fromUnit];
+          result = baseValue / unitConversions[type][toUnit];
+        }
+        convertedSpan.textContent = result.toFixed(6).replace(/\.?0+$/, "");
+        symbolSpan.textContent = toSelect.options[toSelect.selectedIndex].text.split(' ')[0];
+        resultDiv.classList.remove('hidden');
+      }
+      valueInput.addEventListener('input', convert);
+      fromSelect.addEventListener('change', convert);
+      toSelect.addEventListener('change', convert);
+      swapBtn.addEventListener('click', () => {
+        const temp = fromSelect.value;
+        fromSelect.value = toSelect.value;
+        toSelect.value = temp;
+        convert();
+      });
+    });
+  </script>
+</body>
+
+</html>
