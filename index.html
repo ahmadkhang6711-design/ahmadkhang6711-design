@@ -426,6 +426,52 @@
             }
         }
     </style>
+    
+    <!-- Canonical & Robots -->
+    <link rel="canonical" href="http://localhost:3000/" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ultimate Media Converter - Free Online Conversion Tools" />
+    <meta property="og:description" content="Convert images, documents, videos, audio, and archives. Fast, free, secure." />
+    <meta property="og:url" content="http://localhost:3000/" />
+    <meta property="og:image" content="https://dummyimage.com/1200x630/4f46e5/ffffff&text=Ultimate+Media+Converter" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ultimate Media Converter - Free Online Conversion Tools" />
+    <meta name="twitter:description" content="Convert images, documents, videos, audio, and archives. Fast, free, secure." />
+    <meta name="twitter:image" content="https://dummyimage.com/1200x630/4f46e5/ffffff&text=Ultimate+Media+Converter" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Ultimate Media Converter",
+      "url": "http://localhost:3000/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://localhost:3000/?q={search_term}",
+        "query-input": "required name=search_term"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Ultimate Conversion Toolkit",
+      "url": "http://localhost:3000/",
+      "logo": "https://dummyimage.com/256x256/4f46e5/ffffff&text=UMC",
+      "sameAs": [
+        "https://www.facebook.com/",
+        "https://twitter.com/",
+        "https://www.linkedin.com/"
+      ]
+    }
+    </script>
 </head>
 <body class="min-h-screen">
     <header class="header-gradient text-white py-8">
@@ -470,7 +516,7 @@
                             <h2 class="text-2xl font-bold text-primary mb-6">File Conversion</h2>
                             <div class="space-y-6">
                                 <div class="upload-area p-8 text-center" id="drop-area">
-                                    <input type="file" id="file-upload" class="hidden" accept="image/*, .pdf, .doc, .docx, .txt">
+                                    <input type="file" id="file-upload" class="hidden" accept="*/*">
                                     <label for="file-upload" class="cursor-pointer">
                                         <div class="flex flex-col items-center justify-center">
                                             <i class="fas fa-cloud-upload-alt text-4xl text-primary mb-4"></i>
@@ -516,6 +562,26 @@
                                         <div class="format-card" data-type="compressed" data-format="zip">
                                             <div class="format-icon"><i class="fas fa-file-archive"></i></div>
                                             <div class="format-name">ZIP</div>
+                                        </div>
+
+                                        <!-- Audio Formats -->
+                                        <div class="format-card" data-type="audio" data-format="mp3">
+                                            <div class="format-icon"><i class="fas fa-file-audio"></i></div>
+                                            <div class="format-name">MP3</div>
+                                        </div>
+                                        <div class="format-card" data-type="audio" data-format="wav">
+                                            <div class="format-icon"><i class="fas fa-file-audio"></i></div>
+                                            <div class="format-name">WAV</div>
+                                        </div>
+
+                                        <!-- Video Formats -->
+                                        <div class="format-card" data-type="video" data-format="mp4">
+                                            <div class="format-icon"><i class="fas fa-file-video"></i></div>
+                                            <div class="format-name">MP4</div>
+                                        </div>
+                                        <div class="format-card" data-type="video" data-format="webm">
+                                            <div class="format-icon"><i class="fas fa-file-video"></i></div>
+                                            <div class="format-name">WebM</div>
                                         </div>
                                     </div>
                                     
@@ -1121,57 +1187,81 @@
                     convertButton.innerHTML = '<i class="fas fa-cog mr-2"></i> Convert File';
                 });
             } else {
-                // Simulate non-image conversion
-                setTimeout(() => {
-                    // Create a new file name with the target extension
-                    const newFileName = currentFile.name.replace(/\.[^/.]+$/, '') + '.' + targetFormat;
-                    
-                    // For simulation, we just use the original file
-                    convertedBlob = new Blob([currentFile], { type: currentFile.type });
-                    convertedFileName = newFileName;
-                    convertedFileSize = (currentFile.size / 1024).toFixed(2);
-                    
-                    // Update the converted file info
-                    document.getElementById('converted-info').textContent = `Size: ${convertedFileSize} KB | Format: ${targetFormat.toUpperCase()}`;
-                    
-                    // Display preview based on target format
-                    const previewElement = document.getElementById('converted-preview');
-                    previewElement.innerHTML = '';
-                    
-                    if (targetFormat === 'pdf') {
-                        previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file-pdf"></i></div>';
-                    } else if (targetFormat === 'docx') {
-                        previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file-word"></i></div>';
-                    } else if (targetFormat === 'txt') {
-                        previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file-alt"></i></div>';
-                    } else if (targetFormat === 'zip') {
-                        previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file-archive"></i></div>';
-                    } else {
-                        previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file"></i></div>';
-                    }
-                    
-                    // Show result
-                    fileResult.classList.remove('hidden');
-                    noFile.classList.add('hidden');
-                    
-                    // Show file size comparison
-                    const originalSize = parseFloat((currentFile.size / 1024).toFixed(2));
-                    const convertedSize = parseFloat(convertedFileSize);
-                    const sizeChange = ((convertedSize - originalSize) / originalSize * 100).toFixed(1);
-                    
-                    let sizeInfo = '';
-                    if (convertedSize < originalSize) {
-                        sizeInfo = `<span class="positive-change">${Math.abs(sizeChange)}% smaller</span>`;
-                    } else {
-                        sizeInfo = `<span class="negative-change">${sizeChange}% larger</span>`;
-                    }
-                    
-                    document.getElementById('conversion-info').innerHTML = `Conversion complete - ${sizeInfo}`;
-                    
-                    // Reset button
-                    convertButton.disabled = false;
-                    convertButton.innerHTML = '<i class="fas fa-cog mr-2"></i> Convert File';
-                }, 1500);
+                const formData = new FormData();
+                formData.append('file', currentFile);
+                formData.append('targetFormat', targetFormat);
+
+                if (fileType === 'image') {
+                    const width = document.getElementById('image-width').value;
+                    const height = document.getElementById('image-height').value;
+                    const quality = document.getElementById('image-quality').value;
+                    if (width) formData.append('width', width);
+                    if (height) formData.append('height', height);
+                    if (quality) formData.append('quality', quality);
+                }
+
+                fetch('/api/convert', { method: 'POST', body: formData })
+                    .then(async (response) => {
+                        if (!response.ok) {
+                            let errMsg = 'Conversion failed';
+                            try { const data = await response.json(); errMsg = data.error || errMsg; } catch (_) {}
+                            throw new Error(errMsg);
+                        }
+                        const blob = await response.blob();
+                        const contentType = response.headers.get('Content-Type') || '';
+                        const disposition = response.headers.get('Content-Disposition') || '';
+                        const nameMatch = /filename="?([^";]+)"?/i.exec(disposition);
+                        const newFileName = nameMatch ? nameMatch[1] : currentFile.name.replace(/\.[^/.]+$/, '') + '.' + targetFormat;
+
+                        convertedBlob = blob;
+                        convertedFileName = newFileName;
+                        convertedFileSize = (blob.size / 1024).toFixed(2);
+
+                        document.getElementById('converted-info').textContent = `Size: ${convertedFileSize} KB | Format: ${targetFormat.toUpperCase()}`;
+
+                        const previewElement = document.getElementById('converted-preview');
+                        previewElement.innerHTML = '';
+                        if (contentType.startsWith('image/')) {
+                            const img = document.createElement('img');
+                            img.src = URL.createObjectURL(blob);
+                            img.alt = newFileName;
+                            img.className = 'preview-image';
+                            previewElement.appendChild(img);
+                        } else if (contentType === 'application/pdf') {
+                            previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file-pdf"></i></div>';
+                        } else if (contentType.startsWith('audio/')) {
+                            previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file-audio"></i></div>';
+                        } else if (contentType.startsWith('video/')) {
+                            previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file-video"></i></div>';
+                        } else if (targetFormat === 'zip') {
+                            previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file-archive"></i></div>';
+                        } else {
+                            previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file"></i></div>';
+                        }
+
+                        fileResult.classList.remove('hidden');
+                        noFile.classList.add('hidden');
+
+                        const originalSize = parseFloat((currentFile.size / 1024).toFixed(2));
+                        const convertedSize = parseFloat(convertedFileSize);
+                        const sizeChange = ((convertedSize - originalSize) / originalSize * 100).toFixed(1);
+
+                        let sizeInfo = '';
+                        if (convertedSize < originalSize) {
+                            sizeInfo = `<span class="positive-change">${Math.abs(sizeChange)}% smaller</span>`;
+                        } else {
+                            sizeInfo = `<span class="negative-change">${sizeChange}% larger</span>`;
+                        }
+                        document.getElementById('conversion-info').innerHTML = `Conversion complete - ${sizeInfo}`;
+
+                        convertButton.disabled = false;
+                        convertButton.innerHTML = '<i class="fas fa-cog mr-2"></i> Convert File';
+                    })
+                    .catch((err) => {
+                        alert(err.message || 'Conversion failed');
+                        convertButton.disabled = false;
+                        convertButton.innerHTML = '<i class="fas fa-cog mr-2"></i> Convert File';
+                    });
             }
         });
         
@@ -1288,6 +1378,77 @@
         // Save to cloud button
         document.getElementById('save-to-cloud').addEventListener('click', function() {
             alert('Cloud storage integration would be implemented in a production environment');
+        });
+
+        // Batch upload handlers
+        const batchUploadInput = document.getElementById('batch-upload');
+        const batchOptions = document.getElementById('batch-options');
+        const batchFileList = document.getElementById('file-list');
+        const batchProgress = document.getElementById('batch-progress');
+        const batchProgressBar = document.getElementById('batch-progress-bar');
+        const batchComplete = document.getElementById('batch-complete');
+        const downloadAllBtn = document.getElementById('download-all');
+        const startBatchBtn = document.getElementById('start-batch');
+
+        let batchZipBlob = null;
+
+        batchUploadInput.addEventListener('change', function() {
+            batchFiles = Array.from(this.files);
+            if (batchFiles.length > 0) {
+                batchOptions.classList.remove('hidden');
+                batchFileList.innerHTML = '';
+                batchFiles.forEach(f => {
+                    const div = document.createElement('div');
+                    div.textContent = `${f.name} (${(f.size/1024).toFixed(1)} KB)`;
+                    batchFileList.appendChild(div);
+                });
+            }
+        });
+
+        startBatchBtn.addEventListener('click', function() {
+            if (batchFiles.length === 0) {
+                alert('Please add files');
+                return;
+            }
+            const target = document.getElementById('batch-format').value;
+            const formData = new FormData();
+            formData.append('targetFormat', target);
+            batchFiles.forEach(f => formData.append('files', f));
+
+            startBatchBtn.disabled = true;
+            startBatchBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processing...';
+            batchProgress.classList.remove('hidden');
+            batchProgressBar.style.width = '25%';
+
+            fetch('/api/batch', { method: 'POST', body: formData })
+                .then(async (response) => {
+                    if (!response.ok) {
+                        let errMsg = 'Batch conversion failed';
+                        try { const data = await response.json(); errMsg = data.error || errMsg; } catch (_) {}
+                        throw new Error(errMsg);
+                    }
+                    const blob = await response.blob();
+                    batchZipBlob = blob;
+                    batchProgressBar.style.width = '100%';
+                    batchComplete.classList.remove('hidden');
+                    downloadAllBtn.onclick = function() {
+                        if (!batchZipBlob) return;
+                        const url = URL.createObjectURL(batchZipBlob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = 'converted_batch.zip';
+                        document.body.appendChild(a);
+                        a.click();
+                        setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+                    };
+                })
+                .catch((err) => {
+                    alert(err.message || 'Batch conversion failed');
+                })
+                .finally(() => {
+                    startBatchBtn.disabled = false;
+                    startBatchBtn.innerHTML = '<i class="fas fa-play-circle mr-2"></i> Start Batch Conversion';
+                });
         });
         
         // Unit conversion functionality
