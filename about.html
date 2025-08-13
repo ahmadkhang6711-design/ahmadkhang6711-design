@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Ultimate Media & Unit Conversion Toolkit</title>
+    <meta name="description" content="Learn about Ultimate Conversion Toolkit, our mission, and the team behind our free conversion tools. Discover how we help users convert files and units easily.">
+    <meta name="keywords" content="about conversion toolkit, our mission, conversion tools team, free conversion service, about us">
+    <link rel="canonical" href="https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/about.html">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="About Us - Ultimate Media & Unit Conversion Toolkit">
+    <meta property="og:description" content="Learn about Ultimate Conversion Toolkit, our mission, and the team behind our free conversion tools">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/about.html">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="About Us - Ultimate Media & Unit Conversion Toolkit">
+    <meta name="twitter:description" content="Learn about Ultimate Conversion Toolkit, our mission, and the team behind our free conversion tools">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About Us - Ultimate Media & Unit Conversion Toolkit",
+      "description": "Learn about Ultimate Conversion Toolkit, our mission, and the team behind our free conversion tools",
+      "url": "https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/about.html",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Ultimate Conversion Toolkit",
+        "description": "Free online platform for converting between different file formats and units of measurement",
+        "url": "https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/",
+        "foundingDate": "2023",
+        "founders": [
+          {
+            "@type": "Person",
+            "name": "Ahmad Khang"
+          }
+        ],
+        "knowsAbout": [
+          "File Conversion",
+          "Unit Conversion",
+          "Image Processing",
+          "Document Conversion",
+          "Measurement Systems"
+        ],
+        "sameAs": [
+          "https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/"
+        ]
+      }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6e9ff 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .header-gradient {
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+        }
+        
+        footer {
+            background: rgba(30, 41, 59, 0.95);
+            color: #cbd5e1;
+        }
+        
+        .about-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .about-section {
+            margin-bottom: 40px;
+        }
+        
+        .about-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .about-heading {
+            color: #4f46e5;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e7ff;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #4f46e5;
+            font-size: 24px;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #4f46e5;
+            font-size: 48px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: #e0e7ff;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: #4f46e5;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-content {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 18px;
+            color: #666;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 24px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <header class="header-gradient text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2">Ultimate Media & Unit Conversion Toolkit</h1>
+                    <p class="text-indigo-200">Advanced tools for all your media and unit conversion needs</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="bg-white/10 p-3 rounded-full">
+                        <i class="fas fa-sync-alt text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-indigo-200">Last Updated</p>
+                        <p id="last-updated" class="font-semibold">Just now</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 flex flex-wrap justify-center gap-4">
+            <a href="index.html" class="text-gray-600 hover:text-indigo-600 font-medium">Home</a>
+            <a href="about.html" class="text-indigo-600 font-medium border-b-2 border-indigo-600">About</a>
+            <a href="tools.html" class="text-gray-600 hover:text-indigo-600 font-medium">Tools</a>
+            <a href="blog.html" class="text-gray-600 hover:text-indigo-600 font-medium">Blog</a>
+            <a href="faq.html" class="text-gray-600 hover:text-indigo-600 font-medium">FAQ</a>
+            <a href="how-to-use.html" class="text-gray-600 hover:text-indigo-600 font-medium">How to Use</a>
+            <a href="examples.html" class="text-gray-600 hover:text-indigo-600 font-medium">Examples</a>
+            <a href="sitemap.html" class="text-gray-600 hover:text-indigo-600 font-medium">Sitemap</a>
+            <a href="contact.html" class="text-gray-600 hover:text-indigo-600 font-medium">Contact</a>
+            <a href="privacy.html" class="text-gray-600 hover:text-indigo-600 font-medium">Privacy</a>
+            <a href="terms.html" class="text-gray-600 hover:text-indigo-600 font-medium">Terms</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold mb-4">About Us</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Learn about our mission, team, and the story behind Ultimate Conversion Toolkit</p>
+        </div>
+        
+        <!-- Mission Section -->
+        <div class="about-container max-w-4xl mx-auto mb-12">
+            <div class="about-section">
+                <h2 class="about-heading">Our Mission</h2>
+                <p class="text-lg mb-4">At Ultimate Conversion Toolkit, our mission is to provide free, accessible, and easy-to-use conversion tools for everyone. We believe that converting files and units should be simple, fast, and available to all, regardless of technical expertise.</p>
+                <p class="text-lg">We're committed to continuously improving our tools and adding new features to meet the evolving needs of our users worldwide.</p>
+            </div>
+        </div>
+        
+        <!-- Stats Section -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+            <div class="stat-card">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Conversion Tools</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Supported Formats</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100K+</div>
+                <div class="stat-label">Happy Users</div>
+            </div>
+        </div>
+        
+        <!-- Features Section -->
+        <div class="max-w-4xl mx-auto mb-12">
+            <h2 class="text-3xl font-bold mb-8 text-center">What We Offer</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-image"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Media Conversion</h3>
+                    <p>Convert between different file formats including images, documents, videos, and audio files. Our tools preserve quality while reducing file size.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Unit Conversion</h3>
+                    <p>Convert between different units of measurement including length, weight, temperature, area, volume, and more with precision and ease.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Batch Processing</h3>
+                    <p>Save time by converting multiple files at once with our batch processing feature. Apply uniform settings to entire groups of files.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Privacy & Security</h3>
+                    <p>We take your privacy seriously. All files are automatically deleted after 24 hours, and we never share your data with third parties.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Team Section -->
+        <div class="max-w-4xl mx-auto mb-12">
+            <h2 class="text-3xl font-bold mb-8 text-center">Our Team</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="team-member">
+                    <div class="team-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Ahmad Khang</h3>
+                    <p class="text-gray-600 mb-3">Founder & Developer</p>
+                    <p class="text-gray-600">Passionate about creating tools that simplify everyday tasks. Ahmad founded Ultimate Conversion Toolkit to make file and unit conversion accessible to everyone.</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-avatar">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Our Community</h3>
+                    <p class="text-gray-600 mb-3">Users & Contributors</p>
+                    <p class="text-gray-600">Our global community of users and contributors who provide valuable feedback and help us improve our tools every day.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Timeline Section -->
+        <div class="about-container max-w-4xl mx-auto mb-12">
+            <h2 class="about-heading">Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2023 - Idea</div>
+                    <div class="timeline-content">
+                        <p>The idea for Ultimate Conversion Toolkit was born out of frustration with existing conversion tools that were either too complex, too expensive, or too limited.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2023 - Development</div>
+                    <div class="timeline-content">
+                        <p>Development began with a focus on creating simple, intuitive interfaces and powerful conversion algorithms that work entirely in the browser.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2023 - Launch</div>
+                    <div class="timeline-content">
+                        <p>Ultimate Conversion Toolkit launched with core conversion tools for images, documents, and common units of measurement.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2023 - Growth</div>
+                    <div class="timeline-content">
+                        <p>Based on user feedback, we expanded our toolset to include video, audio, and batch conversion capabilities.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Future - Innovation</div>
+                    <div class="timeline-content">
+                        <p>We continue to innovate and expand our offerings, with plans for mobile apps and more specialized conversion tools.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Values Section -->
+        <div class="max-w-4xl mx-auto mb-12">
+            <h2 class="text-3xl font-bold mb-8 text-center">Our Values</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Accessibility</h3>
+                    <p>We believe everyone should have access to powerful conversion tools, regardless of their technical expertise or financial situation.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Privacy</h3>
+                    <p>We respect your privacy and never store your files longer than necessary. Your data is yours alone.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Sustainability</h3>
+                    <p>By optimizing file sizes and reducing the need for multiple tools, we help reduce digital waste and energy consumption.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">Join Our Community</h2>
+            <p class="text-gray-600 mb-6 max-w-2xl mx-auto">Have questions, suggestions, or feedback? We'd love to hear from you!</p>
+            <a href="contact.html" class="btn-primary px-8 py-3 text-lg">
+                Contact Us <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </main>
+    
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">Ultimate Conversion Toolkit</h3>
+                    <p class="text-gray-400">Free tools for all your conversion needs</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-2">Links</h4>
+                    <ul class="space-y-1">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Ultimate Conversion Toolkit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('last-updated').textContent = new Date().toLocaleString();
+    </script>
+</body>
+</html>

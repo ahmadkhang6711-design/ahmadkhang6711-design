@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion Examples - Ultimate Media & Unit Conversion Toolkit</title>
+    <meta name="description" content="Explore real-world conversion examples for files and units. See practical applications of our conversion tools in everyday scenarios.">
+    <meta name="keywords" content="conversion examples, file conversion examples, unit conversion examples, practical conversions, conversion use cases">
+    <link rel="canonical" href="https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/examples.html">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Conversion Examples - Ultimate Media & Unit Conversion Toolkit">
+    <meta property="og:description" content="Explore real-world conversion examples for files and units">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/examples.html">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Conversion Examples - Ultimate Media & Unit Conversion Toolkit">
+    <meta name="twitter:description" content="Explore real-world conversion examples for files and units">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "name": "Conversion Examples - Ultimate Media & Unit Conversion Toolkit",
+      "description": "Explore real-world conversion examples for files and units",
+      "url": "https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/examples.html",
+      "author": {
+        "@type": "Organization",
+        "name": "Ultimate Conversion Toolkit"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ultimate Conversion Toolkit",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/logo.png"
+        }
+      }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6e9ff 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .header-gradient {
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+        }
+        
+        footer {
+            background: rgba(30, 41, 59, 0.95);
+            color: #cbd5e1;
+        }
+        
+        .example-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .example-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .example-header {
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+            color: white;
+            padding: 15px 20px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .example-content {
+            padding: 20px;
+        }
+        
+        .example-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #4f46e5;
+            font-size: 24px;
+        }
+        
+        .conversion-step {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .step-description {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .result-box {
+            background: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .result-title {
+            font-weight: 600;
+            color: #0ea5e9;
+            margin-bottom: 5px;
+        }
+        
+        .category-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        
+        .category-tab {
+            padding: 10px 20px;
+            background: white;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .category-tab.active {
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+            color: white;
+        }
+        
+        .category-tab:hover:not(.active) {
+            background: #f0f9ff;
+            color: #4f46e5;
+        }
+        
+        .category-content {
+            display: none;
+        }
+        
+        .category-content.active {
+            display: block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <header class="header-gradient text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2">Ultimate Media & Unit Conversion Toolkit</h1>
+                    <p class="text-indigo-200">Advanced tools for all your media and unit conversion needs</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="bg-white/10 p-3 rounded-full">
+                        <i class="fas fa-sync-alt text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-indigo-200">Last Updated</p>
+                        <p id="last-updated" class="font-semibold">Just now</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 flex flex-wrap justify-center gap-4">
+            <a href="index.html" class="text-gray-600 hover:text-indigo-600 font-medium">Home</a>
+            <a href="about.html" class="text-gray-600 hover:text-indigo-600 font-medium">About</a>
+            <a href="tools.html" class="text-gray-600 hover:text-indigo-600 font-medium">Tools</a>
+            <a href="blog.html" class="text-gray-600 hover:text-indigo-600 font-medium">Blog</a>
+            <a href="faq.html" class="text-gray-600 hover:text-indigo-600 font-medium">FAQ</a>
+            <a href="how-to-use.html" class="text-gray-600 hover:text-indigo-600 font-medium">How to Use</a>
+            <a href="examples.html" class="text-indigo-600 font-medium border-b-2 border-indigo-600">Examples</a>
+            <a href="sitemap.html" class="text-gray-600 hover:text-indigo-600 font-medium">Sitemap</a>
+            <a href="contact.html" class="text-gray-600 hover:text-indigo-600 font-medium">Contact</a>
+            <a href="privacy.html" class="text-gray-600 hover:text-indigo-600 font-medium">Privacy</a>
+            <a href="terms.html" class="text-gray-600 hover:text-indigo-600 font-medium">Terms</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold mb-4">Conversion Examples</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Explore real-world examples of how our conversion tools can be used in everyday scenarios. See practical applications for file and unit conversions.</p>
+        </div>
+        
+        <!-- Category Tabs -->
+        <div class="category-tabs">
+            <div class="category-tab active" data-category="file-conversion">File Conversion</div>
+            <div class="category-tab" data-category="unit-conversion">Unit Conversion</div>
+            <div class="category-tab" data-category="batch-conversion">Batch Conversion</div>
+        </div>
+        
+        <!-- File Conversion Examples -->
+        <div class="category-content active" id="file-conversion">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Example 1 -->
+                <div class="example-card">
+                    <div class="example-header">
+                        <i class="fas fa-file-image mr-2"></i> Image for Web
+                    </div>
+                    <div class="example-content">
+                        <div class="example-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Optimizing Images for a Website</h3>
+                        <p class="text-gray-600 mb-4">A photographer needs to optimize high-resolution images for their portfolio website to ensure fast loading times.</p>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Original Image</div>
+                                <div class="step-description">Professional photo: 6000×4000 pixels, 12MB, TIFF format</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Conversion Settings</div>
+                                <div class="step-description">Resize to 1920×1280 pixels, convert to WebP format, quality 85%</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Result</div>
+                                <div class="step-description">Web-optimized image with excellent quality and small file size</div>
+                            </div>
+                        </div>
+                        
+                        <div class="result-box">
+                            <div class="result-title">Final Result</div>
+                            <p>1920×1280 pixels, 320KB, WebP format - 97% size reduction with minimal quality loss</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Example 2 -->
+                <div class="example-card">
+                    <div class="example-header">
+                        <i class="fas fa-file-pdf mr-2"></i> Document Sharing
+                    </div>
+                    <div class="example-content">
+                        <div class="example-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Sharing a Report with Colleagues</h3>
+                        <p class="text-gray-600 mb-4">A business professional needs to share a report with colleagues who use different devices and software.</p>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Original Document</div>
+                                <div class="step-description">Business report: 25 pages, DOCX format with complex formatting</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Conversion Settings</div>
+                                <div class="step-description">Convert to PDF format to preserve layout and formatting</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Result</div>
+                                <div class="step-description">Universal document that looks the same on all devices</div>
+                            </div>
+                        </div>
+                        
+                        <div class="result-box">
+                            <div class="result-title">Final Result</div>
+                            <p>25-page PDF document with preserved formatting, compatible with all devices and platforms</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Example 3 -->
+                <div class="example-card">
+                    <div class="example-header">
+                        <i class="fas fa-file-video mr-2"></i> Video Compression
+                    </div>
+                    <div class="example-content">
+                        <div class="example-icon">
+                            <i class="fas fa-compress"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Compressing a Video for Email</h3>
+                        <p class="text-gray-600 mb-4">A videographer needs to send a high-quality video to a client via email, but the file is too large.</p>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Original Video</div>
+                                <div class="step-description">4K video: 3840×2160 pixels, 2.5GB, MOV format</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Conversion Settings</div>
+                                <div class="step-description">Convert to MP4 format, reduce resolution to 1080p, adjust bitrate</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Result</div>
+                                <div class="step-description">Smaller file size with good video quality for email sharing</div>
+                            </div>
+                        </div>
+                        
+                        <div class="result-box">
+                            <div class="result-title">Final Result</div>
+                            <p>1080p MP4 video, 250MB - 90% size reduction while maintaining good quality</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Unit Conversion Examples -->
+        <div class="category-content" id="unit-conversion">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Example 1 -->
+                <div class="example-card">
+                    <div class="example-header">
+                        <i class="fas fa-ruler mr-2"></i> Cooking Conversion
+                    </div>
+                    <div class="example-content">
+                        <div class="example-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Converting Recipe Measurements</h3>
+                        <p class="text-gray-600 mb-4">A home cook is following a European recipe but needs measurements in US customary units.</p>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Original Measurements</div>
+                                <div class="step-description">Recipe calls for 250ml of milk, 150g of flour, and 180°C oven temperature</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Conversion Process</div>
+                                <div class="step-description">Convert milliliters to cups, grams to ounces, Celsius to Fahrenheit</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Result</div>
+                                <div class="step-description">Recipe with US customary measurements</div>
+                            </div>
+                        </div>
+                        
+                        <div class="result-box">
+                            <div class="result-title">Final Result</div>
+                            <p>1 cup of milk, 5.3 ounces of flour, 356°F oven temperature</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Example 2 -->
+                <div class="example-card">
+                    <div class="example-header">
+                        <i class="fas fa-road mr-2"></i> Travel Planning
+                    </div>
+                    <div class="example-content">
+                        <div class="example-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Planning a Road Trip</h3>
+                        <p class="text-gray-600 mb-4">A traveler is planning a road trip in Europe but is more familiar with miles and miles per hour.</p>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Original Information</div>
+                                <div class="step-description">Route is 450 kilometers long, speed limit is 100 km/h</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Conversion Process</div>
+                                <div class="step-description">Convert kilometers to miles, km/h to mph</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Result</div>
+                                <div class="step-description">Familiar measurements for travel planning</div>
+                            </div>
+                        </div>
+                        
+                        <div class="result-box">
+                            <div class="result-title">Final Result</div>
+                            <p>280-mile route, speed limit of 62 mph</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Example 3 -->
+                <div class="example-card">
+                    <div class="example-header">
+                        <i class="fas fa-weight-scale mr-2"></i> Fitness Tracking
+                    </div>
+                    <div class="example-content">
+                        <div class="example-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Converting Weight Measurements</h3>
+                        <p class="text-gray-600 mb-4">A fitness enthusiast is tracking progress but needs to convert between different weight units.</p>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Original Measurements</div>
+                                <div class="step-description">Body weight: 75kg, protein intake: 120g, weight lifted: 50kg</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Conversion Process</div>
+                                <div class="step-description">Convert kilograms to pounds, grams to ounces</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Result</div>
+                                <div class="step-description">Fitness measurements in imperial units</div>
+                            </div>
+                        </div>
+                        
+                        <div class="result-box">
+                            <div class="result-title">Final Result</div>
+                            <p>Body weight: 165.3lbs, protein intake: 4.2oz, weight lifted: 110.2lbs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Batch Conversion Examples -->
+        <div class="category-content" id="batch-conversion">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Example 1 -->
+                <div class="example-card">
+                    <div class="example-header">
+                        <i class="fas fa-images mr-2"></i> Photo Collection
+                    </div>
+                    <div class="example-content">
+                        <div class="example-icon">
+                            <i class="fas fa-camera-retro"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Converting Vacation Photos</h3>
+                        <p class="text-gray-600 mb-4">A photographer returns from vacation with 200+ RAW photos that need to be converted to a more shareable format.</p>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Original Files</div>
+                                <div class="step-description">200+ RAW photos, 25MB each, various camera formats</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Batch Conversion Settings</div>
+                                <div class="step-description">Convert all to JPG format, reduce resolution to 1920×1080, quality 90%</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Process</div>
+                                <div class="step-description">Upload all files, apply uniform settings, start batch conversion</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <div class="step-title">Result</div>
+                                <div class="step-description">Shareable photo collection with consistent quality</div>
+                            </div>
+                        </div>
+                        
+                        <div class="result-box">
+                            <div class="result-title">Final Result</div>
+                            <p>200+ JPG photos, 2-3MB each, ready for sharing and printing</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Example 2 -->
+                <div class="example-card">
+                    <div class="example-header">
+                        <i class="fas fa-file-archive mr-2"></i> Document Archive
+                    </div>
+                    <div class="example-content">
+                        <div class="example-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Archiving Business Documents</h3>
+                        <p class="text-gray-600 mb-4">A business needs to archive hundreds of documents in a standardized format for long-term storage.</p>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <div class="step-title">Original Files</div>
+                                <div class="step-description">500+ documents in various formats: DOCX, TXT, RTF, HTML</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <div class="step-title">Batch Conversion Settings</div>
+                                <div class="step-description">Convert all to PDF/A format for long-term archiving</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <div class="step-title">Process</div>
+                                <div class="step-description">Organize files by department, upload in batches, convert to PDF/A</div>
+                            </div>
+                        </div>
+                        
+                        <div class="conversion-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <div class="step-title">Result</div>
+                                <div class="step-description">Standardized document archive with consistent format</div>
+                            </div>
+                        </div>
+                        
+                        <div class="result-box">
+                            <div class="result-title">Final Result</div>
+                            <p>500+ PDF/A documents organized by department, ready for long-term storage</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Try It Yourself -->
+        <div class="text-center mt-16">
+            <h2 class="text-3xl font-bold mb-4">Try It Yourself</h2>
+            <p class="text-gray-600 mb-6 max-w-2xl mx-auto">Ready to convert your own files or units? Try our tools now and see how easy conversion can be!</p>
+            <a href="index.html" class="btn-primary px-8 py-3 text-lg">
+                Start Converting <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </main>
+    
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">Ultimate Conversion Toolkit</h3>
+                    <p class="text-gray-400">Free tools for all your conversion needs</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-2">Links</h4>
+                    <ul class="space-y-1">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Ultimate Conversion Toolkit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('last-updated').textContent = new Date().toLocaleString();
+        
+        // Category Tabs
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const categoryContents = document.querySelectorAll('.category-content');
+        
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const category = tab.getAttribute('data-category');
+                
+                // Remove active class from all tabs and contents
+                categoryTabs.forEach(t => t.classList.remove('active'));
+                categoryContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                document.getElementById(category).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

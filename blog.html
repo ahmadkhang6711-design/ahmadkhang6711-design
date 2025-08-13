@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Ultimate Media & Unit Conversion Toolkit</title>
+    <meta name="description" content="Read our latest articles about file conversion, unit conversion tips, and how to get the most out of our tools.">
+    <meta name="keywords" content="conversion blog, file conversion tips, unit conversion guide, digital tools, media conversion">
+    <link rel="canonical" href="https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/blog.html">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Blog - Ultimate Media & Unit Conversion Toolkit">
+    <meta property="og:description" content="Read our latest articles about file conversion, unit conversion tips, and how to get the most out of our tools">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/blog.html">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Blog - Ultimate Media & Unit Conversion Toolkit">
+    <meta name="twitter:description" content="Read our latest articles about file conversion, unit conversion tips, and how to get the most out of our tools">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Blog - Ultimate Media & Unit Conversion Toolkit",
+      "description": "Read our latest articles about file conversion, unit conversion tips, and how to get the most out of our tools",
+      "url": "https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/blog.html",
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "headline": "How to Optimize Images for Web Without Losing Quality",
+          "datePublished": "2023-10-01",
+          "author": {
+            "@type": "Person",
+            "name": "Ultimate Conversion Toolkit"
+          },
+          "image": "https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/images/blog-image-optimization.jpg"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Complete Guide to Unit Conversion for Everyday Use",
+          "datePublished": "2023-09-25",
+          "author": {
+            "@type": "Person",
+            "name": "Ultimate Conversion Toolkit"
+          },
+          "image": "https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/images/blog-unit-conversion.jpg"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Batch File Conversion: Save Time with These Pro Tips",
+          "datePublished": "2023-09-18",
+          "author": {
+            "@type": "Person",
+            "name": "Ultimate Conversion Toolkit"
+          },
+          "image": "https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/images/blog-batch-conversion.jpg"
+        }
+      ]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6e9ff 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .header-gradient {
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+        }
+        
+        footer {
+            background: rgba(30, 41, 59, 0.95);
+            color: #cbd5e1;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .blog-category {
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+        }
+        
+        .sidebar-widget {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag {
+            background: #e0e7ff;
+            color: #4f46e5;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .tag:hover {
+            background: #c7d2fe;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px 0 0 10px;
+            padding: 12px 16px;
+            outline: none;
+        }
+        
+        .newsletter-form button {
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            border-radius: 0 10px 10px 0;
+            padding: 0 20px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-gradient text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2">Ultimate Media & Unit Conversion Toolkit</h1>
+                    <p class="text-indigo-200">Advanced tools for all your media and unit conversion needs</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="bg-white/10 p-3 rounded-full">
+                        <i class="fas fa-sync-alt text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-indigo-200">Last Updated</p>
+                        <p id="last-updated" class="font-semibold">Just now</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 flex flex-wrap justify-center gap-4">
+            <a href="index.html" class="text-gray-600 hover:text-indigo-600 font-medium">Home</a>
+            <a href="about.html" class="text-gray-600 hover:text-indigo-600 font-medium">About</a>
+            <a href="tools.html" class="text-gray-600 hover:text-indigo-600 font-medium">Tools</a>
+            <a href="blog.html" class="text-indigo-600 font-medium border-b-2 border-indigo-600">Blog</a>
+            <a href="faq.html" class="text-gray-600 hover:text-indigo-600 font-medium">FAQ</a>
+            <a href="how-to-use.html" class="text-gray-600 hover:text-indigo-600 font-medium">How to Use</a>
+            <a href="examples.html" class="text-gray-600 hover:text-indigo-600 font-medium">Examples</a>
+            <a href="sitemap.html" class="text-gray-600 hover:text-indigo-600 font-medium">Sitemap</a>
+            <a href="contact.html" class="text-gray-600 hover:text-indigo-600 font-medium">Contact</a>
+            <a href="privacy.html" class="text-gray-600 hover:text-indigo-600 font-medium">Privacy</a>
+            <a href="terms.html" class="text-gray-600 hover:text-indigo-600 font-medium">Terms</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold mb-4">Conversion Toolkit Blog</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Tips, tutorials, and insights to help you get the most out of our conversion tools and improve your workflow.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Main Content -->
+            <div class="lg:col-span-2">
+                <div class="grid grid-cols-1 gap-8">
+                    <!-- Blog Post 1 -->
+                    <article class="blog-card">
+                        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="blog-category">Image Optimization</span>
+                                <span class="text-gray-500 text-sm">October 1, 2023</span>
+                            </div>
+                            <h2 class="text-2xl font-bold mb-3">How to Optimize Images for Web Without Losing Quality</h2>
+                            <p class="text-gray-600 mb-4">Learn professional techniques to reduce image file sizes while maintaining visual quality. Discover the best formats, compression settings, and tools for web optimization.</p>
+                            <a href="#" class="btn-primary">
+                                Read More <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 2 -->
+                    <article class="blog-card">
+                        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="blog-category">Unit Conversion</span>
+                                <span class="text-gray-500 text-sm">September 25, 2023</span>
+                            </div>
+                            <h2 class="text-2xl font-bold mb-3">Complete Guide to Unit Conversion for Everyday Use</h2>
+                            <p class="text-gray-600 mb-4">Master the art of converting between different units of measurement. This comprehensive guide covers length, weight, temperature, and more with practical examples.</p>
+                            <a href="#" class="btn-primary">
+                                Read More <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 3 -->
+                    <article class="blog-card">
+                        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="blog-category">Productivity</span>
+                                <span class="text-gray-500 text-sm">September 18, 2023</span>
+                            </div>
+                            <h2 class="text-2xl font-bold mb-3">Batch File Conversion: Save Time with These Pro Tips</h2>
+                            <p class="text-gray-600 mb-4">Discover how to process multiple files simultaneously with our batch conversion tool. Learn organization strategies and automation techniques to streamline your workflow.</p>
+                            <a href="#" class="btn-primary">
+                                Read More <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 4 -->
+                    <article class="blog-card">
+                        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1546484475-7f7bd55792da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="blog-category">File Formats</span>
+                                <span class="text-gray-500 text-sm">September 10, 2023</span>
+                            </div>
+                            <h2 class="text-2xl font-bold mb-3">Understanding File Formats: Which One to Use When</h2>
+                            <p class="text-gray-600 mb-4">Navigate the complex world of file formats with confidence. Learn the differences between common formats and when to use each one for optimal results.</p>
+                            <a href="#" class="btn-primary">
+                                Read More <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+                    
+                    <!-- Blog Post 5 -->
+                    <article class="blog-card">
+                        <div class="blog-image" style="background-image: url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="blog-category">Video Conversion</span>
+                                <span class="text-gray-500 text-sm">September 3, 2023</span>
+                            </div>
+                            <h2 class="text-2xl font-bold mb-3">Video Compression Techniques: Quality vs. File Size</h2>
+                            <p class="text-gray-600 mb-4">Learn how to balance video quality with file size requirements. Explore different codecs, bitrates, and resolution settings for various use cases.</p>
+                            <a href="#" class="btn-primary">
+                                Read More <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+                
+                <!-- Pagination -->
+                <div class="flex justify-center mt-12">
+                    <nav class="flex space-x-2">
+                        <a href="#" class="bg-white px-4 py-2 rounded-lg shadow-sm hover:bg-indigo-50">
+                            <i class="fas fa-chevron-left"></i>
+                        </a>
+                        <a href="#" class="bg-indigo-600 text-white px-4 py-2 rounded-lg shadow-sm">1</a>
+                        <a href="#" class="bg-white px-4 py-2 rounded-lg shadow-sm hover:bg-indigo-50">2</a>
+                        <a href="#" class="bg-white px-4 py-2 rounded-lg shadow-sm hover:bg-indigo-50">3</a>
+                        <a href="#" class="bg-white px-4 py-2 rounded-lg shadow-sm hover:bg-indigo-50">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="lg:col-span-1">
+                <!-- Search Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="text-xl font-bold mb-4">Search Blog</h3>
+                    <div class="relative">
+                        <input type="text" placeholder="Search articles..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        <button class="absolute right-2 top-2 text-gray-500">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Categories Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="text-xl font-bold mb-4">Categories</h3>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between">
+                            <a href="#" class="text-indigo-600 hover:text-indigo-800">Image Optimization</a>
+                            <span class="text-gray-500">(3)</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <a href="#" class="text-indigo-600 hover:text-indigo-800">Unit Conversion</a>
+                            <span class="text-gray-500">(5)</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <a href="#" class="text-indigo-600 hover:text-indigo-800">Productivity</a>
+                            <span class="text-gray-500">(4)</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <a href="#" class="text-indigo-600 hover:text-indigo-800">File Formats</a>
+                            <span class="text-gray-500">(2)</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <a href="#" class="text-indigo-600 hover:text-indigo-800">Video Conversion</a>
+                            <span class="text-gray-500">(3)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Tags Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="text-xl font-bold mb-4">Popular Tags</h3>
+                    <div class="tag-cloud">
+                        <a href="#" class="tag">conversion</a>
+                        <a href="#" class="tag">optimization</a>
+                        <a href="#" class="tag">tutorial</a>
+                        <a href="#" class="tag">batch processing</a>
+                        <a href="#" class="tag">file formats</a>
+                        <a href="#" class="tag">quality</a>
+                        <a href="#" class="tag">productivity</a>
+                        <a href="#" class="tag">guide</a>
+                    </div>
+                </div>
+                
+                <!-- Newsletter Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="text-xl font-bold mb-4">Subscribe to Newsletter</h3>
+                    <p class="text-gray-600 mb-3">Get the latest tips and tutorials delivered to your inbox.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                
+                <!-- Popular Posts Widget -->
+                <div class="sidebar-widget">
+                    <h3 class="text-xl font-bold mb-4">Popular Posts</h3>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <div class="w-16 h-16 rounded-lg overflow-hidden mr-3 flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Blog post" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <a href="#" class="font-medium hover:text-indigo-600">How to Optimize Images for Web Without Losing Quality</a>
+                                <p class="text-gray-500 text-sm mt-1">Oct 1, 2023</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="w-16 h-16 rounded-lg overflow-hidden mr-3 flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Blog post" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <a href="#" class="font-medium hover:text-indigo-600">Complete Guide to Unit Conversion for Everyday Use</a>
+                                <p class="text-gray-500 text-sm mt-1">Sep 25, 2023</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <div class="w-16 h-16 rounded-lg overflow-hidden mr-3 flex-shrink-0">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Blog post" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <a href="#" class="font-medium hover:text-indigo-600">Batch File Conversion: Save Time with These Pro Tips</a>
+                                <p class="text-gray-500 text-sm mt-1">Sep 18, 2023</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">Ultimate Conversion Toolkit</h3>
+                    <p class="text-gray-400">Free tools for all your conversion needs</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-2">Links</h4>
+                    <ul class="space-y-1">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Ultimate Conversion Toolkit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('last-updated').textContent = new Date().toLocaleString();
+    </script>
+</body>
+</html>

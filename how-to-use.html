@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use - Ultimate Media & Unit Conversion Toolkit</title>
+    <meta name="description" content="Learn how to use our conversion tools with step-by-step guides. Get the most out of our file and unit conversion features with our easy-to-follow tutorials.">
+    <meta name="keywords" content="how to use conversion tools, file conversion guide, unit conversion tutorial, step-by-step conversion, conversion tool help">
+    <link rel="canonical" href="https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/how-to-use.html">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="How to Use - Ultimate Media & Unit Conversion Toolkit">
+    <meta property="og:description" content="Learn how to use our conversion tools with step-by-step guides">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/how-to-use.html">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="How to Use - Ultimate Media & Unit Conversion Toolkit">
+    <meta name="twitter:description" content="Learn how to use our conversion tools with step-by-step guides">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Use - Ultimate Media & Unit Conversion Toolkit",
+      "description": "Learn how to use our conversion tools with step-by-step guides",
+      "url": "https://ahmadkhang6711-design.github.io/ahmadkhang6711-design/how-to-use.html",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Choose Your Conversion Tool",
+          "text": "Select the appropriate conversion tool from our homepage based on your needs."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Upload Your File or Enter Values",
+          "text": "For file conversions, upload your file. For unit conversions, enter the values you want to convert."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Select Output Format or Unit",
+          "text": "Choose the desired output format for files or the target unit for measurements."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Adjust Settings (Optional)",
+          "text": "Customize conversion settings like quality, dimensions, or precision as needed."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Start Conversion",
+          "text": "Click the convert button to start the conversion process."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Download Result",
+          "text": "Once conversion is complete, download your converted file or view the converted value."
+        }
+      ]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6e9ff 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .header-gradient {
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+        }
+        
+        footer {
+            background: rgba(30, 41, 59, 0.95);
+            color: #cbd5e1;
+        }
+        
+        .guide-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .guide-section {
+            margin-bottom: 40px;
+        }
+        
+        .guide-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .guide-heading {
+            color: #4f46e5;
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e7ff;
+        }
+        
+        .step-container {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 18px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .step-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .step-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .tip-box {
+            background: #f0f9ff;
+            border-left: 4px solid #0ea5e9;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .tip-title {
+            font-weight: 600;
+            color: #0ea5e9;
+            margin-bottom: 5px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: #4f46e5;
+            font-size: 24px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 24px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+        }
+        
+        .toc {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .toc-heading {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #4f46e5;
+        }
+        
+        .toc-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .toc-list li {
+            margin-bottom: 8px;
+        }
+        
+        .toc-list a {
+            color: #4f46e5;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .toc-list a:hover {
+            color: #8b5cf6;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-gradient text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2">Ultimate Media & Unit Conversion Toolkit</h1>
+                    <p class="text-indigo-200">Advanced tools for all your media and unit conversion needs</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="bg-white/10 p-3 rounded-full">
+                        <i class="fas fa-sync-alt text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-indigo-200">Last Updated</p>
+                        <p id="last-updated" class="font-semibold">Just now</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 flex flex-wrap justify-center gap-4">
+            <a href="index.html" class="text-gray-600 hover:text-indigo-600 font-medium">Home</a>
+            <a href="about.html" class="text-gray-600 hover:text-indigo-600 font-medium">About</a>
+            <a href="tools.html" class="text-gray-600 hover:text-indigo-600 font-medium">Tools</a>
+            <a href="blog.html" class="text-gray-600 hover:text-indigo-600 font-medium">Blog</a>
+            <a href="faq.html" class="text-gray-600 hover:text-indigo-600 font-medium">FAQ</a>
+            <a href="how-to-use.html" class="text-indigo-600 font-medium border-b-2 border-indigo-600">How to Use</a>
+            <a href="examples.html" class="text-gray-600 hover:text-indigo-600 font-medium">Examples</a>
+            <a href="sitemap.html" class="text-gray-600 hover:text-indigo-600 font-medium">Sitemap</a>
+            <a href="contact.html" class="text-gray-600 hover:text-indigo-600 font-medium">Contact</a>
+            <a href="privacy.html" class="text-gray-600 hover:text-indigo-600 font-medium">Privacy</a>
+            <a href="terms.html" class="text-gray-600 hover:text-indigo-600 font-medium">Terms</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold mb-4">How to Use Our Conversion Tools</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Follow these step-by-step guides to make the most of our conversion tools. We'll walk you through the process for each type of conversion.</p>
+        </div>
+        
+        <!-- Table of Contents -->
+        <div class="toc max-w-4xl mx-auto mb-12">
+            <h3 class="toc-heading">Table of Contents</h3>
+            <ul class="toc-list">
+                <li><a href="#general-steps">General Conversion Steps</a></li>
+                <li><a href="#file-conversion">File Conversion Guide</a></li>
+                <li><a href="#unit-conversion">Unit Conversion Guide</a></li>
+                <li><a href="#batch-conversion">Batch Conversion Guide</a></li>
+                <li><a href="#tips">Tips for Best Results</a></li>
+                <li><a href="#troubleshooting">Troubleshooting</a></li>
+            </ul>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+            <!-- General Steps -->
+            <div class="guide-container" id="general-steps">
+                <h2 class="guide-heading">General Conversion Steps</h2>
+                <p class="mb-6">Regardless of which conversion tool you're using, the basic process follows these steps:</p>
+                
+                <div class="step-container">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Choose Your Conversion Tool</h3>
+                        <p class="step-description">Select the appropriate conversion tool from our homepage based on your needs. You can choose from image, document, video, audio, or unit conversion tools.</p>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Upload Your File or Enter Values</h3>
+                        <p class="step-description">For file conversions, click the upload area and select your file from your device. For unit conversions, enter the values you want to convert in the input field.</p>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Select Output Format or Unit</h3>
+                        <p class="step-description">Choose the desired output format for files (e.g., JPG, PNG, PDF) or the target unit for measurements (e.g., meters, feet, kilograms).</p>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Adjust Settings (Optional)</h3>
+                        <p class="step-description">Customize conversion settings like quality, dimensions, or precision as needed. Not all tools have adjustable settings.</p>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Start Conversion</h3>
+                        <p class="step-description">Click the convert button to start the conversion process. The time required depends on the file size and type of conversion.</p>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Download Result</h3>
+                        <p class="step-description">Once conversion is complete, download your converted file or view the converted value. Files are automatically deleted from our servers after 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- File Conversion Guide -->
+            <div class="guide-container" id="file-conversion">
+                <h2 class="guide-heading">File Conversion Guide</h2>
+                <p class="mb-6">Our file conversion tools support a wide range of formats. Here's how to convert your files:</p>
+                
+                <div class="guide-section">
+                    <h3 class="text-xl font-semibold mb-4 text-indigo-600">Image Conversion</h3>
+                    <div class="step-container">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Upload Your Image</h3>
+                            <p class="step-description">Click the upload area and select an image file from your device. Supported formats include JPG, PNG, GIF, WebP, BMP, TIFF, and SVG.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-container">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Select Output Format</h3>
+                            <p class="step-description">Choose the format you want to convert your image to from the dropdown menu.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-container">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Adjust Settings (Optional)</h3>
+                            <p class="step-description">You can resize the image by entering new dimensions, adjust the quality slider, and choose whether to maintain the aspect ratio.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-container">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Convert and Download</h3>
+                            <p class="step-description">Click "Convert Image" and wait for the process to complete. Once done, click "Download" to save your converted image.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <div class="tip-title">Pro Tip</div>
+                        <p>For web use, convert images to WebP format for better compression without losing quality. Use the quality slider to balance between file size and image quality.</p>
+                    </div>
+                </div>
+                
+                <div class="guide-section">
+                    <h3 class="text-xl font-semibold mb-4 text-indigo-600">Document Conversion</h3>
+                    <div class="step-container">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Upload Your Document</h3>
+                            <p class="step-description">Click the upload area and select a document file from your device. Supported formats include PDF, DOCX, TXT, RTF, and HTML.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-container">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Select Output Format</h3>
+                            <p class="step-description">Choose the format you want to convert your document to from the dropdown menu.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step-container">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3 class="step-title">Convert and Download</h3>
+                            <p class="step-description">Click "Convert Document" and wait for the process to complete. Once done, click "Download" to save your converted document.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tip-box">
+                        <div class="tip-title">Pro Tip</div>
+                        <p>When converting to PDF, the formatting is usually preserved better than other formats. For text extraction, convert to TXT format.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Unit Conversion Guide -->
+            <div class="guide-container" id="unit-conversion">
+                <h2 class="guide-heading">Unit Conversion Guide</h2>
+                <p class="mb-6">Our unit conversion tools make it easy to convert between different units of measurement. Here's how to use them:</p>
+                
+                <div class="step-container">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Select Unit Type</h3>
+                        <p class="step-description">Choose the type of unit you want to convert (e.g., length, weight, temperature, area, volume, speed).</p>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Enter Value</h3>
+                        <p class="step-description">Type the value you want to convert in the input field.</p>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Select Source Unit</h3>
+                        <p class="step-description">Choose the unit of the value you entered from the first dropdown menu.</p>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Select Target Unit</h3>
+                        <p class="step-description">Choose the unit you want to convert to from the second dropdown menu.</p>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3 class="step-title">View Result</h3>
+                        <p class="step-description">The converted value will appear automatically. You can also click the swap button to reverse the conversion.</p>
+                    </div>
+                </div>
+                
+                <div class="tip-box">
+                    <div class="tip-title">Pro Tip</div>
+                    <p>For temperature conversions, remember that Celsius, Fahrenheit, and Kelvin have different zero points, not just different scales. Our tool handles these differences automatically.</p>
+                </div>
+            </div>
+            
+            <!-- Batch Conversion Guide -->
+            <div class="guide-container" id="batch-conversion">
+                <h2 class="guide-heading">Batch Conversion Guide</h2>
+                <p class="mb-6">Our batch conversion tool allows you to convert multiple files at once. Here's how to use it:</p>
+                
+                <div class="step-container">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Upload Multiple Files</h3>
+                        <p class="step-description">Click the upload area and select multiple files from your device. You can also drag and drop files into the upload area.</p>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Select Output Format</h3>
+                        <p class="step-description">Choose the format you want to convert all files to from the dropdown menu.</p>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Adjust Settings (Optional)</h3>
+                        <p class="step-description">Customize settings like quality or compression level that will apply to all files in the batch.</p>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Start Batch Conversion</h3>
+                        <p class="step-description">Click "Start Batch Conversion" to begin processing all files. You'll see a progress bar showing the conversion status.</p>
+                    </div>
+                </div>
+                
+                <div class="step-container">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Download Results</h3>
+                        <p class="step-description">Once all files are converted, you can download them individually or as a ZIP archive.</p>
+                    </div>
+                </div>
+                
+                <div class="tip-box">
+                    <div class="tip-title">Pro Tip</div>
+                    <p>Batch conversion is ideal for converting large numbers of files with the same settings. For files that need different settings, convert them individually.</p>
+                </div>
+            </div>
+            
+            <!-- Tips for Best Results -->
+            <div class="guide-container" id="tips">
+                <h2 class="guide-heading">Tips for Best Results</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-file-image"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Image Conversion Tips</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Use WebP format for web images to reduce file size without losing quality</li>
+                            <li>For print, use TIFF or PNG formats to preserve quality</li>
+                            <li>Adjust quality slider to balance between file size and image quality</li>
+                            <li>Maintain aspect ratio to avoid distorted images</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Document Conversion Tips</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>PDF format preserves formatting across all devices</li>
+                            <li>For text extraction, convert to TXT format</li>
+                            <li>Complex documents may lose some formatting during conversion</li>
+                            <li>Check the converted document for accuracy</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-ruler"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Unit Conversion Tips</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Double-check your input values for accuracy</li>
+                            <li>Use the swap button to quickly reverse conversions</li>
+                            <li>For scientific calculations, use more precise units</li>
+                            <li>Temperature conversions account for different zero points</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Batch Conversion Tips</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Organize files before starting batch conversion</li>
+                            <li>Use consistent settings for all files in a batch</li>
+                            <li>Download results as a ZIP archive for easier management</li>
+                            <li>Large batches may take longer to process</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Troubleshooting -->
+            <div class="guide-container" id="troubleshooting">
+                <h2 class="guide-heading">Troubleshooting</h2>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-indigo-600">Conversion Failed</h3>
+                        <p>If your conversion fails, try these solutions:</p>
+                        <ul class="list-disc pl-5 space-y-2 mt-2">
+                            <li>Check if the file is corrupted or damaged</li>
+                            <li>Ensure the file format is supported</li>
+                            <li>Verify that the file size is within limits</li>
+                            <li>Try uploading the file again</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-indigo-600">Poor Quality Results</h3>
+                        <p>If the converted file quality is poor, try these solutions:</p>
+                        <ul class="list-disc pl-5 space-y-2 mt-2">
+                            <li>Increase the quality setting for images</li>
+                            <li>For documents, try converting to a different format</li>
+                            <li>Check the original file quality</li>
+                            <li>For videos, reduce the resolution to improve playback</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold mb-3 text-indigo-600">Slow Conversion</h3>
+                        <p>If conversion is taking too long, try these solutions:</p>
+                        <ul class="list-disc pl-5 space-y-2 mt-2">
+                            <li>Reduce file size before conversion</li>
+                            <li>Close other browser tabs or applications</li>
+                            <li>Check your internet connection</li>
+                            <li>Try converting during off-peak hours</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <p class="mb-4">Still having issues? Our support team is here to help!</p>
+                    <a href="contact.html" class="btn-primary">
+                        Contact Support <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-2">Ultimate Conversion Toolkit</h3>
+                    <p class="text-gray-400">Free tools for all your conversion needs</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-2">Links</h4>
+                    <ul class="space-y-1">
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Ultimate Conversion Toolkit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('last-updated').textContent = new Date().toLocaleString();
+    </script>
+</body>
+</html>
