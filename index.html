@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Media Converter - Free Online Conversion Tools</title>
+    <meta name="description" content="Free online media converter for all file types. Convert images, documents, videos, audio, and compressed files instantly. Supports 50+ formats including PDF, DOCX, JPG, MP4, ZIP, and more.">
+    <meta name="keywords" content="media converter, file conversion, online converter, image converter, document converter, video converter, audio converter, compress files, free conversion tools">
+    <meta name="author" content="Ultimate Conversion Toolkit">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6e9ff 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .header-gradient {
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+        }
+        
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .conversion-result {
+            transition: all 0.3s ease;
+        }
+        
+        .positive-change {
+            color: #10b981;
+        }
+        
+        .negative-change {
+            color: #ef4444;
+        }
+        
+        .upload-area {
+            border: 2px dashed #c7d2fe;
+            background: #f8fafc;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            background: #eef2ff;
+            border-color: #a5b4fc;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #4f46e5 0%, #8b5cf6 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 24px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        .btn-secondary {
+            background: #e0e7ff;
+            color: #4f46e5;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: #c7d2fe;
+        }
+        
+        input, select {
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 12px 16px;
+            width: 100%;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #a5b4fc;
+            box-shadow: 0 0 0 3px rgba(199, 210, 254, 0.5);
+        }
+        
+        .tab-btn {
+            padding: 14px 24px;
+            border-radius: 10px 10px 0 0;
+            background: #eef2ff;
+            color: #4f46e5;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #4f46e5;
+            transform: translateY(5px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background: white;
+            color: #4f46e5;
+        }
+        
+        .tab-btn.active::after {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background: #e0e7ff;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #4f46e5;
+            font-size: 24px;
+        }
+        
+        footer {
+            background: rgba(30, 41, 59, 0.95);
+            color: #cbd5e1;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .conversion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .unit-card {
+            padding: 20px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .resize-option {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .resize-option input {
+            width: 100%;
+        }
+        
+        .progress-container {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #4f46e5, #8b5cf6);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        .preview-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .preview-box {
+            flex: 1;
+            min-width: 250px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .preview-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #4f46e5;
+        }
+        
+        .preview-image {
+            max-width: 100%;
+            max-height: 200px;
+            margin: 0 auto;
+            border-radius: 6px;
+            object-fit: contain;
+        }
+        
+        .file-icon {
+            font-size: 48px;
+            color: #4f46e5;
+            margin-bottom: 10px;
+        }
+        
+        .conversion-badge {
+            background: #e0e7ff;
+            color: #4f46e5;
+            padding: 4px 8px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-left: 8px;
+        }
+        
+        .file-info {
+            background: #f8fafc;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        
+        .conversion-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding: 10px;
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+        
+        .format-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .format-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .format-card:hover {
+            border-color: #a5b4fc;
+            background: #f5f7ff;
+        }
+        
+        .format-card.active {
+            background: #e0e7ff;
+            border-color: #4f46e5;
+        }
+        
+        .format-icon {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: #4f46e5;
+        }
+        
+        .format-name {
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .file-type-section {
+            display: none;
+        }
+        
+        .file-type-section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .ad-container {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .file-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .file-action-btn {
+            flex: 1;
+            padding: 8px;
+            border-radius: 8px;
+            background: #e0e7ff;
+            color: #4f46e5;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .file-action-btn:hover {
+            background: #c7d2fe;
+        }
+        
+        .conversion-options {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8fafc;
+            border-radius: 12px;
+        }
+        
+        .option-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .preview-container {
+                flex-direction: column;
+            }
+            
+            .preview-box {
+                width: 100%;
+            }
+            
+            .tab-btn {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+            
+            .conversion-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .ad-container {
+                margin: 15px 0;
+            }
+            
+            .file-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <header class="header-gradient text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2">Ultimate Media Converter</h1>
+                    <p class="text-indigo-200">Convert any file format instantly - images, documents, videos, audio, and archives</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="bg-white/10 p-3 rounded-full">
+                        <i class="fas fa-sync-alt text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm text-indigo-200">Last Updated</p>
+                        <p id="last-updated" class="font-semibold">Just now</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="card p-6 mb-8">
+            <div class="flex flex-wrap gap-2 mb-6">
+                <button class="tab-btn active" data-tab="media">
+                    <i class="fas fa-file-image mr-2"></i>Media Conversion
+                </button>
+                <button class="tab-btn" data-tab="units">
+                    <i class="fas fa-ruler-combined mr-2"></i>Unit Conversion
+                </button>
+                <button class="tab-btn" data-tab="batch">
+                    <i class="fas fa-layer-group mr-2"></i>Batch Tools
+                </button>
+            </div>
+
+            <!-- Media Conversion -->
+            <div id="media" class="tab-content active">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <div class="card p-6 mb-6">
+                            <h2 class="text-2xl font-bold text-primary mb-6">File Conversion</h2>
+                            <div class="space-y-6">
+                                <div class="upload-area p-8 text-center" id="drop-area">
+                                    <input type="file" id="file-upload" class="hidden" accept="image/*, .pdf, .doc, .docx, .txt">
+                                    <label for="file-upload" class="cursor-pointer">
+                                        <div class="flex flex-col items-center justify-center">
+                                            <i class="fas fa-cloud-upload-alt text-4xl text-primary mb-4"></i>
+                                            <h3 class="text-lg font-medium mb-1">Upload a File</h3>
+                                            <p class="text-gray-600">Drag & drop or click to browse</p>
+                                            <p class="text-sm text-gray-500 mt-2">Supports images, PDFs, documents, text files</p>
+                                        </div>
+                                    </label>
+                                </div>
+                                
+                                <div id="format-selector" class="hidden">
+                                    <label class="block text-gray-700 mb-2 font-medium">Convert to Format</label>
+                                    <div class="format-grid">
+                                        <!-- Image Formats -->
+                                        <div class="format-card" data-type="image" data-format="jpg">
+                                            <div class="format-icon"><i class="fas fa-file-image"></i></div>
+                                            <div class="format-name">JPG</div>
+                                        </div>
+                                        <div class="format-card" data-type="image" data-format="png">
+                                            <div class="format-icon"><i class="fas fa-file-image"></i></div>
+                                            <div class="format-name">PNG</div>
+                                        </div>
+                                        <div class="format-card" data-type="image" data-format="webp">
+                                            <div class="format-icon"><i class="fas fa-file-image"></i></div>
+                                            <div class="format-name">WebP</div>
+                                        </div>
+                                        
+                                        <!-- Document Formats -->
+                                        <div class="format-card" data-type="document" data-format="pdf">
+                                            <div class="format-icon"><i class="fas fa-file-pdf"></i></div>
+                                            <div class="format-name">PDF</div>
+                                        </div>
+                                        <div class="format-card" data-type="document" data-format="docx">
+                                            <div class="format-icon"><i class="fas fa-file-word"></i></div>
+                                            <div class="format-name">DOCX</div>
+                                        </div>
+                                        <div class="format-card" data-type="document" data-format="txt">
+                                            <div class="format-icon"><i class="fas fa-file-alt"></i></div>
+                                            <div class="format-name">TXT</div>
+                                        </div>
+                                        
+                                        <!-- Compressed Formats -->
+                                        <div class="format-card" data-type="compressed" data-format="zip">
+                                            <div class="format-icon"><i class="fas fa-file-archive"></i></div>
+                                            <div class="format-name">ZIP</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Image Options Section -->
+                                    <div id="image-options" class="file-type-section mt-6 space-y-4">
+                                        <div class="conversion-options">
+                                            <div class="option-title">
+                                                <i class="fas fa-crop-alt"></i>
+                                                Resize Options
+                                            </div>
+                                            <div class="grid grid-cols-2 gap-4">
+                                                <div>
+                                                    <label class="text-sm text-gray-600 mb-1">Width (px)</label>
+                                                    <input type="number" id="image-width" placeholder="Original" min="1">
+                                                </div>
+                                                <div>
+                                                    <label class="text-sm text-gray-600 mb-1">Height (px)</label>
+                                                    <input type="number" id="image-height" placeholder="Original" min="1">
+                                                </div>
+                                            </div>
+                                            <div class="mt-3 flex items-center">
+                                                <input type="checkbox" id="maintain-aspect" class="mr-2" checked>
+                                                <label for="maintain-aspect" class="text-gray-700">Maintain aspect ratio</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="conversion-options">
+                                            <div class="option-title">
+                                                <i class="fas fa-sliders-h"></i>
+                                                Quality Settings
+                                            </div>
+                                            <input type="range" id="image-quality" min="1" max="100" value="90" class="w-full">
+                                            <div class="flex justify-between text-sm text-gray-600 mt-1">
+                                                <span>Low</span>
+                                                <span id="quality-value">90%</span>
+                                                <span>High</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Document Options Section -->
+                                    <div id="document-options" class="file-type-section mt-6 space-y-4">
+                                        <div class="conversion-options">
+                                            <div class="option-title">
+                                                <i class="fas fa-font"></i>
+                                                Text Formatting
+                                            </div>
+                                            <select id="text-encoding" class="mb-3">
+                                                <option value="utf8">UTF-8 Encoding</option>
+                                                <option value="ascii">ASCII Encoding</option>
+                                            </select>
+                                            <div class="flex items-center">
+                                                <input type="checkbox" id="preserve-formatting" class="mr-2" checked>
+                                                <label for="preserve-formatting" class="text-gray-700">Preserve formatting</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Compression Options Section -->
+                                    <div id="compression-options" class="file-type-section mt-6 space-y-4">
+                                        <div class="conversion-options">
+                                            <div class="option-title">
+                                                <i class="fas fa-file-archive"></i>
+                                                Compression Settings
+                                            </div>
+                                            <input type="range" id="compression-level" min="1" max="10" value="5" class="w-full">
+                                            <div class="flex justify-between text-sm text-gray-600 mt-1">
+                                                <span>Minimal</span>
+                                                <span id="compression-value">Medium</span>
+                                                <span>Maximum</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button id="convert-file" class="btn-primary w-full py-3 disabled:opacity-50 hidden">
+                                    <i class="fas fa-cog mr-2"></i> Convert File
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="card p-6">
+                            <h2 class="text-2xl font-bold text-primary mb-6">Conversion Results</h2>
+                            <div id="file-result" class="hidden">
+                                <div class="preview-container">
+                                    <div class="preview-box">
+                                        <div class="preview-title">Original File</div>
+                                        <div id="original-preview" class="mb-4">
+                                            <!-- Preview will be inserted here -->
+                                        </div>
+                                        <div id="original-info" class="file-info">Size: 0 KB | Type: Unknown</div>
+                                    </div>
+                                    <div class="preview-box">
+                                        <div class="preview-title">Converted File</div>
+                                        <div id="converted-preview" class="mb-4">
+                                            <!-- Preview will be inserted here -->
+                                        </div>
+                                        <div id="converted-info" class="file-info">Size: 0 KB | Format: Unknown</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="conversion-stats">
+                                    <div>
+                                        <span id="conversion-info" class="text-sm text-gray-600">Conversion complete</span>
+                                    </div>
+                                    <div class="file-actions">
+                                        <button id="download-file" class="file-action-btn">
+                                            <i class="fas fa-download"></i> Download
+                                        </button>
+                                        <button id="share-file" class="file-action-btn">
+                                            <i class="fas fa-share-alt"></i> Share
+                                        </button>
+                                        <button id="save-to-cloud" class="file-action-btn">
+                                            <i class="fas fa-cloud-upload-alt"></i> Save to Cloud
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="no-file" class="text-center py-12">
+                                <i class="fas fa-file-upload text-4xl text-gray-300 mb-4"></i>
+                                <h3 class="text-xl font-medium text-gray-500">No File Selected</h3>
+                                <p class="text-gray-400 mt-2">Upload a file to begin conversion</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unit Conversion -->
+            <div id="units" class="tab-content">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Length Converter -->
+                    <div class="card p-5">
+                        <div class="feature-icon">
+                            <i class="fas fa-ruler"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-4">Length Conversion</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Value</label>
+                                <input type="number" id="length-value" value="1" min="0" class="text-center">
+                            </div>
+                            <div class="grid grid-cols-3 gap-2">
+                                <select id="length-from">
+                                    <option value="mm">Millimeter (mm)</option>
+                                    <option value="cm">Centimeter (cm)</option>
+                                    <option value="m" selected>Meter (m)</option>
+                                    <option value="km">Kilometer (km)</option>
+                                    <option value="in">Inch (in)</option>
+                                    <option value="ft">Foot (ft)</option>
+                                    <option value="yd">Yard (yd)</option>
+                                    <option value="mi">Mile (mi)</option>
+                                </select>
+                                <button class="btn-secondary" id="swap-length">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </button>
+                                <select id="length-to">
+                                    <option value="mm">Millimeter (mm)</option>
+                                    <option value="cm">Centimeter (cm)</option>
+                                    <option value="m">Meter (m)</option>
+                                    <option value="km" selected>Kilometer (km)</option>
+                                    <option value="in">Inch (in)</option>
+                                    <option value="ft">Foot (ft)</option>
+                                    <option value="yd">Yard (yd)</option>
+                                    <option value="mi">Mile (mi)</option>
+                                </select>
+                            </div>
+                            <div id="length-result" class="p-4 bg-indigo-50 rounded-lg text-center">
+                                <span id="length-converted" class="text-2xl font-bold">1.00</span>
+                                <span id="length-symbol" class="text-gray-600 ml-2">km</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Weight Converter -->
+                    <div class="card p-5">
+                        <div class="feature-icon">
+                            <i class="fas fa-weight-scale"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-4">Weight Conversion</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Value</label>
+                                <input type="number" id="weight-value" value="1" min="0" class="text-center">
+                            </div>
+                            <div class="grid grid-cols-3 gap-2">
+                                <select id="weight-from">
+                                    <option value="mg">Milligram (mg)</option>
+                                    <option value="g">Gram (g)</option>
+                                    <option value="kg" selected>Kilogram (kg)</option>
+                                    <option value="t">Metric Ton (t)</option>
+                                    <option value="oz">Ounce (oz)</option>
+                                    <option value="lb">Pound (lb)</option>
+                                </select>
+                                <button class="btn-secondary" id="swap-weight">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </button>
+                                <select id="weight-to">
+                                    <option value="mg">Milligram (mg)</option>
+                                    <option value="g">Gram (g)</option>
+                                    <option value="kg">Kilogram (kg)</option>
+                                    <option value="t" selected>Metric Ton (t)</option>
+                                    <option value="oz">Ounce (oz)</option>
+                                    <option value="lb">Pound (lb)</option>
+                                </select>
+                            </div>
+                            <div id="weight-result" class="p-4 bg-indigo-50 rounded-lg text-center">
+                                <span id="weight-converted" class="text-2xl font-bold">0.00</span>
+                                <span id="weight-symbol" class="text-gray-600 ml-2">t</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Temperature Converter -->
+                    <div class="card p-5">
+                        <div class="feature-icon">
+                            <i class="fas fa-temperature-high"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary mb-4">Temperature Conversion</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Value</label>
+                                <input type="number" id="temp-value" value="20" min="-273.15" class="text-center">
+                            </div>
+                            <div class="grid grid-cols-3 gap-2">
+                                <select id="temp-from">
+                                    <option value="c" selected>°C (Celsius)</option>
+                                    <option value="f">°F (Fahrenheit)</option>
+                                    <option value="k">K (Kelvin)</option>
+                                </select>
+                                <button class="btn-secondary" id="swap-temp">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </button>
+                                <select id="temp-to">
+                                    <option value="c">°C (Celsius)</option>
+                                    <option value="f" selected>°F (Fahrenheit)</option>
+                                    <option value="k">K (Kelvin)</option>
+                                </select>
+                            </div>
+                            <div id="temp-result" class="p-4 bg-indigo-50 rounded-lg text-center">
+                                <span id="temp-converted" class="text-2xl font-bold">68.00</span>
+                                <span id="temp-symbol" class="text-gray-600 ml-2">°F</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Batch Tools -->
+            <div id="batch" class="tab-content">
+                <div class="grid grid-cols-1 gap-8">
+                    <div class="card p-6">
+                        <h2 class="text-2xl font-bold text-primary mb-6">Batch File Conversion</h2>
+                        <div class="space-y-6">
+                            <div class="upload-area p-8 text-center" id="batch-drop-area">
+                                <input type="file" id="batch-upload" multiple class="hidden">
+                                <label for="batch-upload" class="cursor-pointer">
+                                    <div class="flex flex-col items-center justify-center">
+                                        <i class="fas fa-folder-open text-4xl text-primary mb-4"></i>
+                                        <h3 class="text-lg font-medium mb-1">Upload Multiple Files</h3>
+                                        <p class="text-gray-600">Drag & drop or click to browse</p>
+                                        <p class="text-sm text-gray-500 mt-2">Supports up to 10 files at once</p>
+                                    </div>
+                                </label>
+                            </div>
+                            
+                            <div id="batch-options" class="hidden">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-gray-700 mb-2 font-medium">Output Format</label>
+                                        <select id="batch-format">
+                                            <option value="jpg">JPG (Images)</option>
+                                            <option value="png">PNG (Images)</option>
+                                            <option value="pdf">PDF (Documents)</option>
+                                            <option value="zip">ZIP (Compressed)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-gray-700 mb-2 font-medium">Output Quality</label>
+                                        <select id="batch-quality">
+                                            <option value="high">High Quality</option>
+                                            <option value="medium" selected>Medium Quality</option>
+                                            <option value="low">Low Quality</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div id="batch-file-list" class="mt-6 max-h-60 overflow-y-auto p-4 bg-gray-50 rounded-lg">
+                                    <div class="font-medium mb-2">Selected Files:</div>
+                                    <div id="file-list" class="space-y-2"></div>
+                                </div>
+                                
+                                <button id="start-batch" class="btn-primary w-full py-3 mt-6">
+                                    <i class="fas fa-play-circle mr-2"></i> Start Batch Conversion
+                                </button>
+                            </div>
+                            
+                            <div id="batch-progress" class="mt-4 hidden">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">Processing files...</span>
+                                    <span id="progress-percent" class="text-sm font-medium">0%</span>
+                                </div>
+                                <div class="progress-container">
+                                    <div id="batch-progress-bar" class="progress-bar"></div>
+                                </div>
+                                <div id="current-file" class="text-sm text-gray-600 mt-2"></div>
+                                
+                                <div id="batch-complete" class="mt-6 hidden">
+                                    <div class="bg-green-50 p-4 rounded-lg flex flex-col md:flex-row justify-between items-center">
+                                        <div class="mb-4 md:mb-0">
+                                            <div class="font-medium text-green-800">Batch Conversion Complete</div>
+                                            <div class="text-sm text-green-600">All files have been processed successfully</div>
+                                        </div>
+                                        <button id="download-all" class="btn-primary">
+                                            <i class="fas fa-download mr-2"></i> Download All
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-4">Ultimate Media Converter</h3>
+                    <p class="text-gray-400">Free online tools for all your conversion needs. Fast, secure, and easy to use.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Tools</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">File Converter</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Unit Converter</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Batch Tools</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Compress Files</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Connect</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <p class="text-gray-400">Subscribe to our newsletter for updates</p>
+                    <div class="mt-2 flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full text-gray-800">
+                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-r-lg">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 Ultimate Media Converter. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global variables
+        let currentFile = null;
+        let convertedBlob = null;
+        let convertedFileName = '';
+        let convertedFileSize = 0;
+        let batchFiles = [];
+
+        // Tab functionality
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                button.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // File upload functionality
+        const dropArea = document.getElementById('drop-area');
+        const fileInput = document.getElementById('file-upload');
+        const formatSelector = document.getElementById('format-selector');
+        const convertButton = document.getElementById('convert-file');
+        const fileResult = document.getElementById('file-result');
+        const noFile = document.getElementById('no-file');
+        
+        // Prevent default drag behaviors
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+            document.body.addEventListener(eventName, preventDefaults, false);
+        });
+        
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        
+        // Highlight drop area when item is dragged over it
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false);
+        });
+        
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false);
+        });
+        
+        function highlight() {
+            dropArea.classList.add('bg-indigo-50');
+        }
+        
+        function unhighlight() {
+            dropArea.classList.remove('bg-indigo-50');
+        }
+        
+        // Handle dropped files
+        dropArea.addEventListener('drop', handleDrop, false);
+        
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            handleFiles(files);
+        }
+        
+        fileInput.addEventListener('change', function() {
+            handleFiles(this.files);
+        });
+        
+        function handleFiles(files) {
+            if (files.length > 0) {
+                currentFile = files[0];
+                displayFileInfo(currentFile);
+                formatSelector.classList.remove('hidden');
+                convertButton.classList.remove('hidden');
+                
+                // Reset previous conversion
+                fileResult.classList.add('hidden');
+                noFile.classList.remove('hidden');
+                convertedBlob = null;
+            }
+        }
+        
+        function displayFileInfo(file) {
+            const fileSize = (file.size / 1024).toFixed(2);
+            const fileType = file.type || 'Unknown';
+            const fileName = file.name;
+            
+            document.getElementById('original-info').textContent = `Size: ${fileSize} KB | Type: ${fileType}`;
+            
+            // Display preview based on file type
+            const previewElement = document.getElementById('original-preview');
+            previewElement.innerHTML = '';
+            
+            if (file.type.startsWith('image/')) {
+                const img = document.createElement('img');
+                img.src = URL.createObjectURL(file);
+                img.alt = fileName;
+                img.className = 'preview-image';
+                previewElement.appendChild(img);
+            } else if (file.name.endsWith('.pdf')) {
+                previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file-pdf"></i></div>';
+            } else if (file.name.endsWith('.doc') || file.name.endsWith('.docx')) {
+                previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file-word"></i></div>';
+            } else if (file.name.endsWith('.txt')) {
+                previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file-alt"></i></div>';
+            } else {
+                previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file"></i></div>';
+            }
+        }
+        
+        // Format selection
+        document.querySelectorAll('.format-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Remove active class from all cards
+                document.querySelectorAll('.format-card').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked card
+                this.classList.add('active');
+                
+                // Show appropriate options based on file type
+                const fileType = this.getAttribute('data-type');
+                
+                // Hide all option sections
+                document.querySelectorAll('.file-type-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show relevant section
+                if (fileType === 'image') {
+                    document.getElementById('image-options').classList.add('active');
+                } else if (fileType === 'compressed') {
+                    document.getElementById('compression-options').classList.add('active');
+                } else if (fileType === 'document') {
+                    document.getElementById('document-options').classList.add('active');
+                }
+            });
+        });
+        
+        // Image quality slider
+        const qualitySlider = document.getElementById('image-quality');
+        const qualityValue = document.getElementById('quality-value');
+        
+        qualitySlider.addEventListener('input', function() {
+            qualityValue.textContent = this.value + '%';
+        });
+        
+        // Compression level slider
+        const compressionSlider = document.getElementById('compression-level');
+        const compressionValue = document.getElementById('compression-value');
+        
+        compressionSlider.addEventListener('input', function() {
+            const levels = ['Minimal', 'Very Low', 'Low', 'Below Medium', 'Medium', 'Above Medium', 'High', 'Very High', 'Maximum', 'Ultra'];
+            compressionValue.textContent = levels[this.value - 1];
+        });
+        
+        // Convert button
+        convertButton.addEventListener('click', function() {
+            const selectedFormat = document.querySelector('.format-card.active');
+            if (!selectedFormat) {
+                alert('Please select a format to convert to');
+                return;
+            }
+            
+            if (!currentFile) {
+                alert('No file selected');
+                return;
+            }
+            
+            const targetFormat = selectedFormat.getAttribute('data-format');
+            const fileType = selectedFormat.getAttribute('data-type');
+            
+            // Disable button and show spinner
+            convertButton.disabled = true;
+            convertButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Converting...';
+            
+            if (currentFile.type.startsWith('image/') && ['jpg', 'png', 'webp'].includes(targetFormat)) {
+                // Image conversion
+                const width = document.getElementById('image-width').value;
+                const height = document.getElementById('image-height').value;
+                const quality = document.getElementById('image-quality').value;
+                const maintainAspect = document.getElementById('maintain-aspect').checked;
+                
+                convertImage(currentFile, targetFormat, width, height, quality, maintainAspect, function(blob, newFileName) {
+                    // Update the converted file info
+                    convertedFileSize = (blob.size / 1024).toFixed(2);
+                    document.getElementById('converted-info').textContent = `Size: ${convertedFileSize} KB | Format: ${targetFormat.toUpperCase()}`;
+                    
+                    // Display preview
+                    const previewElement = document.getElementById('converted-preview');
+                    previewElement.innerHTML = '';
+                    
+                    const img = document.createElement('img');
+                    img.src = URL.createObjectURL(blob);
+                    img.alt = newFileName;
+                    img.className = 'preview-image';
+                    previewElement.appendChild(img);
+                    
+                    // Store for download
+                    convertedBlob = blob;
+                    convertedFileName = newFileName;
+                    
+                    // Show result
+                    fileResult.classList.remove('hidden');
+                    noFile.classList.add('hidden');
+                    
+                    // Show file size comparison
+                    const originalSize = parseFloat((currentFile.size / 1024).toFixed(2));
+                    const convertedSize = parseFloat(convertedFileSize);
+                    const sizeChange = ((convertedSize - originalSize) / originalSize * 100).toFixed(1);
+                    
+                    let sizeInfo = '';
+                    if (convertedSize < originalSize) {
+                        sizeInfo = `<span class="positive-change">${Math.abs(sizeChange)}% smaller</span>`;
+                    } else {
+                        sizeInfo = `<span class="negative-change">${sizeChange}% larger</span>`;
+                    }
+                    
+                    document.getElementById('conversion-info').innerHTML = `Conversion complete - ${sizeInfo}`;
+                    
+                    // Reset button
+                    convertButton.disabled = false;
+                    convertButton.innerHTML = '<i class="fas fa-cog mr-2"></i> Convert File';
+                });
+            } else {
+                // Simulate non-image conversion
+                setTimeout(() => {
+                    // Create a new file name with the target extension
+                    const newFileName = currentFile.name.replace(/\.[^/.]+$/, '') + '.' + targetFormat;
+                    
+                    // For simulation, we just use the original file
+                    convertedBlob = new Blob([currentFile], { type: currentFile.type });
+                    convertedFileName = newFileName;
+                    convertedFileSize = (currentFile.size / 1024).toFixed(2);
+                    
+                    // Update the converted file info
+                    document.getElementById('converted-info').textContent = `Size: ${convertedFileSize} KB | Format: ${targetFormat.toUpperCase()}`;
+                    
+                    // Display preview based on target format
+                    const previewElement = document.getElementById('converted-preview');
+                    previewElement.innerHTML = '';
+                    
+                    if (targetFormat === 'pdf') {
+                        previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file-pdf"></i></div>';
+                    } else if (targetFormat === 'docx') {
+                        previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file-word"></i></div>';
+                    } else if (targetFormat === 'txt') {
+                        previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file-alt"></i></div>';
+                    } else if (targetFormat === 'zip') {
+                        previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file-archive"></i></div>';
+                    } else {
+                        previewElement.innerHTML = '<div class="file-icon"><i class="fas fa-file"></i></div>';
+                    }
+                    
+                    // Show result
+                    fileResult.classList.remove('hidden');
+                    noFile.classList.add('hidden');
+                    
+                    // Show file size comparison
+                    const originalSize = parseFloat((currentFile.size / 1024).toFixed(2));
+                    const convertedSize = parseFloat(convertedFileSize);
+                    const sizeChange = ((convertedSize - originalSize) / originalSize * 100).toFixed(1);
+                    
+                    let sizeInfo = '';
+                    if (convertedSize < originalSize) {
+                        sizeInfo = `<span class="positive-change">${Math.abs(sizeChange)}% smaller</span>`;
+                    } else {
+                        sizeInfo = `<span class="negative-change">${sizeChange}% larger</span>`;
+                    }
+                    
+                    document.getElementById('conversion-info').innerHTML = `Conversion complete - ${sizeInfo}`;
+                    
+                    // Reset button
+                    convertButton.disabled = false;
+                    convertButton.innerHTML = '<i class="fas fa-cog mr-2"></i> Convert File';
+                }, 1500);
+            }
+        });
+        
+        // Image conversion function using Canvas API
+        function convertImage(file, targetFormat, width, height, quality, maintainAspect, callback) {
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                const img = new Image();
+                img.onload = function() {
+                    // Calculate new dimensions
+                    let newWidth = img.width;
+                    let newHeight = img.height;
+                    
+                    if (width || height) {
+                        if (maintainAspect) {
+                            const aspectRatio = img.width / img.height;
+                            
+                            if (width && !height) {
+                                newWidth = parseInt(width);
+                                newHeight = newWidth / aspectRatio;
+                            } else if (!width && height) {
+                                newHeight = parseInt(height);
+                                newWidth = newHeight * aspectRatio;
+                            } else if (width && height) {
+                                newWidth = parseInt(width);
+                                newHeight = parseInt(height);
+                                
+                                // Adjust to maintain aspect ratio
+                                const targetAspect = newWidth / newHeight;
+                                if (aspectRatio > targetAspect) {
+                                    // Original is wider - adjust height
+                                    newHeight = newWidth / aspectRatio;
+                                } else {
+                                    // Original is taller - adjust width
+                                    newWidth = newHeight * aspectRatio;
+                                }
+                            }
+                        } else {
+                            if (width) newWidth = parseInt(width);
+                            if (height) newHeight = parseInt(height);
+                        }
+                    }
+                    
+                    // Create canvas
+                    const canvas = document.createElement('canvas');
+                    canvas.width = newWidth;
+                    canvas.height = newHeight;
+                    
+                    const ctx = canvas.getContext('2d');
+                    
+                    // Draw image on canvas
+                    ctx.drawImage(img, 0, 0, newWidth, newHeight);
+                    
+                    // Determine MIME type
+                    let mimeType;
+                    switch(targetFormat) {
+                        case 'jpg': mimeType = 'image/jpeg'; break;
+                        case 'png': mimeType = 'image/png'; break;
+                        case 'webp': mimeType = 'image/webp'; break;
+                        default: mimeType = 'image/jpeg';
+                    }
+                    
+                    // Convert to Blob
+                    canvas.toBlob(function(blob) {
+                        const newFileName = file.name.replace(/\.[^/.]+$/, '') + '.' + targetFormat;
+                        callback(blob, newFileName);
+                    }, mimeType, quality/100);
+                };
+                
+                img.onerror = function() {
+                    alert('Error loading the image. Please try another file.');
+                    convertButton.disabled = false;
+                    convertButton.innerHTML = '<i class="fas fa-cog mr-2"></i> Convert File';
+                };
+                
+                img.src = e.target.result;
+            };
+            
+            reader.onerror = function() {
+                alert('Error reading the file. Please try again.');
+                convertButton.disabled = false;
+                convertButton.innerHTML = '<i class="fas fa-cog mr-2"></i> Convert File';
+            };
+            
+            reader.readAsDataURL(file);
+        }
+        
+        // Download button
+        document.getElementById('download-file').addEventListener('click', function() {
+            if (convertedBlob) {
+                const url = URL.createObjectURL(convertedBlob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = convertedFileName;
+                document.body.appendChild(a);
+                a.click();
+                
+                // Clean up
+                setTimeout(() => {
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }, 100);
+            } else {
+                alert('No converted file available');
+            }
+        });
+        
+        // Share button
+        document.getElementById('share-file').addEventListener('click', function() {
+            alert('File sharing functionality would be implemented in a production environment');
+        });
+        
+        // Save to cloud button
+        document.getElementById('save-to-cloud').addEventListener('click', function() {
+            alert('Cloud storage integration would be implemented in a production environment');
+        });
+        
+        // Unit conversion functionality
+        const unitConverters = {
+            length: {
+                units: {
+                    'mm': 0.001,
+                    'cm': 0.01,
+                    'm': 1,
+                    'km': 1000,
+                    'in': 0.0254,
+                    'ft': 0.3048,
+                    'yd': 0.9144,
+                    'mi': 1609.34
+                },
+                convert: function(value, from, to) {
+                    const meters = value * this.units[from];
+                    return meters / this.units[to];
+                }
+            },
+            weight: {
+                units: {
+                    'mg': 0.000001,
+                    'g': 0.001,
+                    'kg': 1,
+                    't': 1000,
+                    'oz': 0.0283495,
+                    'lb': 0.453592
+                },
+                convert: function(value, from, to) {
+                    const kgs = value * this.units[from];
+                    return kgs / this.units[to];
+                }
+            },
+            temperature: {
+                convert: function(value, from, to) {
+                    // Convert to Celsius first
+                    let celsius;
+                    if (from === 'c') {
+                        celsius = value;
+                    } else if (from === 'f') {
+                        celsius = (value - 32) * 5/9;
+                    } else if (from === 'k') {
+                        celsius = value - 273.15;
+                    }
+                    
+                    // Convert from Celsius to target
+                    if (to === 'c') {
+                        return celsius;
+                    } else if (to === 'f') {
+                        return celsius * 9/5 + 32;
+                    } else if (to === 'k') {
+                        return celsius + 273.15;
+                    }
+                }
+            }
+        };
+        
+        // Set up unit conversion event listeners
+        ['length', 'weight', 'temp'].forEach(type => {
+            const valueInput = document.getElementById(`${type}-value`);
+            const fromSelect = document.getElementById(`${type}-from`);
+            const toSelect = document.getElementById(`${type}-to`);
+            const resultDiv = document.getElementById(`${type}-result`);
+            const convertedSpan = document.getElementById(`${type}-converted`);
+            const symbolSpan = document.getElementById(`${type}-symbol`);
+            const swapButton = document.getElementById(`swap-${type}`);
+            
+            // Convert on input change
+            function convert() {
+                const value = parseFloat(valueInput.value) || 0;
+                const from = fromSelect.value;
+                const to = toSelect.value;
+                
+                let result;
+                if (type === 'temp') {
+                    result = unitConverters.temperature.convert(value, from, to);
+                } else {
+                    result = unitConverters[type].convert(value, from, to);
+                }
+                
+                convertedSpan.textContent = result.toFixed(2);
+                
+                // Set symbol
+                const toOption = toSelect.options[toSelect.selectedIndex];
+                symbolSpan.textContent = toOption.text.split(' ')[0];
+            }
+            
+            valueInput.addEventListener('input', convert);
+            fromSelect.addEventListener('change', convert);
+            toSelect.addEventListener('change', convert);
+            
+            // Swap button
+            swapButton.addEventListener('click', function() {
+                const fromValue = fromSelect.value;
+                fromSelect.value = toSelect.value;
+                toSelect.value = fromValue;
+                convert();
+            });
+            
+            // Initial conversion
+            convert();
+        });
+        
+        // Update last updated time
+        function updateTime() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const formattedHours = hours % 12 || 12;
+            const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+            
+            document.getElementById('last-updated').textContent = `${formattedHours}:${formattedMinutes} ${ampm}`;
+        }
+        
+        updateTime();
+        setInterval(updateTime, 60000); // Update every minute
+        
+        // Initialize with a sample file for demo
+        window.addEventListener('load', function() {
+            // Create a sample file for demo purposes
+            const sampleImageUrl = 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80';
+            
+            fetch(sampleImageUrl)
+                .then(response => response.blob())
+                .then(blob => {
+                    const file = new File([blob], 'sample-image.jpg', { type: 'image/jpeg' });
+                    handleFiles([file]);
+                });
+        });
+    </script>
+</body>
+</html>
